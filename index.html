@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +7,10 @@
 <title>Shlok Kishore | Filmmaker Portfolio</title>
 
 <style>
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family: Arial, sans-serif;
@@ -15,24 +20,31 @@ color:white;
 line-height:1.6;
 }
 
+/* HEADER */
+
 header{
 background:black;
-padding:40px;
+padding:50px 20px;
 text-align:center;
 border-bottom:1px solid #333;
 }
 
 header h1{
-font-size:40px;
+font-size:42px;
 margin-bottom:10px;
+letter-spacing:1px;
 }
 
 header p{
 color:#bbb;
+max-width:800px;
+margin:auto;
 }
 
+/* SECTIONS */
+
 section{
-padding:60px 10%;
+padding:70px 10%;
 }
 
 h2{
@@ -41,6 +53,8 @@ margin-bottom:30px;
 border-left:4px solid #ff4444;
 padding-left:10px;
 }
+
+/* FILMS GRID */
 
 .films{
 display:grid;
@@ -52,12 +66,12 @@ gap:40px;
 background:#111;
 padding:20px;
 border-radius:10px;
-transition:0.3s;
+transition:0.35s;
 }
 
 .film:hover{
 transform:scale(1.03);
-box-shadow:0 0 20px rgba(255,68,68,0.4);
+box-shadow:0 0 25px rgba(255,68,68,0.45);
 }
 
 .film iframe{
@@ -65,7 +79,11 @@ width:100%;
 aspect-ratio:16/9;
 border:none;
 border-radius:6px;
+margin-top:10px;
+margin-bottom:10px;
 }
+
+/* SKILLS */
 
 .skills{
 display:flex;
@@ -78,7 +96,16 @@ background:#111;
 padding:10px 15px;
 border-radius:6px;
 border:1px solid #333;
+transition:0.3s;
 }
+
+.skill:hover{
+background:#ff4444;
+color:white;
+border-color:#ff4444;
+}
+
+/* SOCIAL MEDIA GRID */
 
 .social-grid{
 display:grid;
@@ -89,7 +116,16 @@ gap:20px;
 .social-grid img{
 width:100%;
 border-radius:8px;
+transition:0.35s;
+cursor:pointer;
 }
+
+.social-grid img:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px rgba(255,68,68,0.45);
+}
+
+/* STATS */
 
 .stats{
 display:grid;
@@ -100,10 +136,34 @@ margin-bottom:30px;
 
 .stat{
 background:#111;
-padding:20px;
+padding:25px;
 text-align:center;
 border-radius:8px;
+transition:0.35s;
 }
+
+.stat:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px rgba(255,68,68,0.45);
+}
+
+.stat h3{
+font-size:28px;
+margin-bottom:5px;
+}
+
+/* CONTACT LINKS */
+
+a{
+color:#ff4444;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER */
 
 footer{
 background:black;
@@ -111,14 +171,30 @@ text-align:center;
 padding:30px;
 margin-top:40px;
 border-top:1px solid #333;
+font-size:14px;
+color:#aaa;
 }
 
-a{
-color:#ff4444;
-text-decoration:none;
+/* MOBILE */
+
+@media(max-width:768px){
+
+section{
+padding:60px 7%;
+}
+
+header h1{
+font-size:34px;
+}
+
+h2{
+font-size:28px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -247,7 +323,7 @@ Responsibilities included content planning, campaign management, collaborations,
 </div>
 
 <div class="social-grid">
-  
+
 <img src="analytics 1.jpeg">
 <img src="analytics 2.jpeg">
 <img src="analytics 3.jpeg">
@@ -285,7 +361,7 @@ Responsibilities included content planning, campaign management, collaborations,
 <p>
 LinkedIn:  
 <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237">
-linkedin.com/in/shlok-kishore-68ab07237
+linkedin.com/in/shlok-kishore
 </a>
 </p>
 
