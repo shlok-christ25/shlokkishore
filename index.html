@@ -102,9 +102,10 @@ transform:translateY(-6px);
 box-shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 
-/* VIDEO THUMBNAILS */
+/* VIDEO THUMBNAIL */
 
 .video{
+position:relative;
 cursor:pointer;
 border-radius:10px;
 overflow:hidden;
@@ -115,16 +116,50 @@ transition:0.3s;
 width:100%;
 display:block;
 border-radius:10px;
+transition:0.3s;
+}
+
+/* dark overlay */
+
+.video::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0);
+transition:0.3s;
+}
+
+/* play icon */
+
+.video::before{
+content:"▶";
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.6);
+font-size:60px;
+color:white;
+opacity:0;
+transition:0.3s;
+z-index:2;
+}
+
+/* hover effect */
+
+.video:hover::after{
+background:rgba(0,0,0,0.35);
+}
+
+.video:hover::before{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
 }
 
 .video:hover{
 transform:scale(1.02);
-}
-
-.video iframe{
-width:100%;
-aspect-ratio:16/9;
-border:none;
 }
 
 /* SOCIAL MEDIA */
