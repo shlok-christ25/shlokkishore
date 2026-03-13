@@ -78,38 +78,43 @@
         .film-info h3 { margin: 0; font-size: 1.4rem; }
         .film-info b { color: var(--accent); }
 
-        /* --- STABLE SOFTWARE LOGOS --- */
+        /* --- SOFTWARE LOGO STYLES --- */
         .software-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 30px;
             margin-top: 20px;
         }
+
         .software-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-align: center;
         }
-        /* We use i (icons) instead of img tags for 100% reliability */
-        .software-item i {
-            font-size: 40px;
-            color: #FFFFFF;
-            transition: 0.3s;
-        }
-        /* Custom image fallback for DaVinci Resolve which isn't in FontAwesome yet */
+
         .software-item img {
-            width: 40px;
-            height: 40px;
-            filter: brightness(0) invert(1);
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            filter: none; 
+            opacity: 1;
+            transition: transform 0.3s ease;
         }
-        .software-item:hover i, .software-item:hover img {
-            color: var(--accent);
-            filter: none;
-            transform: scale(1.1);
+
+        .software-item:hover img {
+            transform: translateY(-5px);
         }
-        .software-item span { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+
+        .software-item span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            font-weight: 600;
+            line-height: 1.2;
+        }
 
         .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-bottom: 40px; }
         .stat-box { background: rgba(255,255,255,0.03); padding: 30px 10px; border-radius: 15px; text-align: center; border: 1px solid var(--border); }
@@ -117,8 +122,6 @@
         .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
         .social-grid img { width: 100%; border-radius: 10px; border: 1px solid var(--border); }
 
-        .skills-flex { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-item { border: 1px solid var(--border); padding: 10px 20px; border-radius: 50px; font-size: 0.85rem; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .contact-link { padding: 25px; background: var(--card-bg); border-radius: 15px; text-decoration: none; color: var(--text); border: 1px solid var(--border); }
         .contact-link span { color: var(--accent); font-size: 0.7rem; display: block; margin-bottom: 5px; }
@@ -193,68 +196,35 @@
         </div>
     </section>
 
-   <style>
-    /* --- UPDATED SOFTWARE LOGO STYLES --- */
-    .software-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-        gap: 30px;
-        margin-top: 20px;
-    }
-
-    .software-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        text-align: center;
-    }
-
-    .software-item img {
-        width: 50px;   /* Adjusted size for better visibility */
-        height: 50px;
-        object-fit: contain;
-        /* Removed all filters and low opacity so they stay bright and visible */
-        filter: none; 
-        opacity: 1;
-        transition: transform 0.3s ease;
-    }
-
-    /* Small lift effect when hovering, but colors stay the same */
-    .software-item:hover img {
-        transform: translateY(-5px);
-    }
-
-    .software-item span {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--text-dim);
-        font-weight: 600;
-    }
-</style>
-
-<section class="reveal">
-    <h2>Creative <span>Suite</span></h2>
-    <div class="software-grid">
-        <div class="software-item">
-            <img src="premiere.svg" alt="Premiere Pro">
-            <span>Premiere Pro</span>
+    <section class="reveal">
+        <h2>Creative <span>Suite</span></h2>
+        <div class="software-grid">
+            <div class="software-item">
+                <img src="premiere.svg" alt="Premiere Pro">
+                <span>Premiere Pro</span>
+            </div>
+            <div class="software-item">
+                <img src="ae.svg" alt="After Effects">
+                <span>After Effects</span>
+            </div>
+            <div class="software-item">
+                <img src="davinci.png" alt="DaVinci Resolve">
+                <span>DaVinci Resolve</span>
+            </div>
+            <div class="software-item">
+                <img src="ps.svg" alt="Photoshop">
+                <span>Photoshop</span>
+            </div>
+            <div class="software-item">
+                <img src="finaldraft.png" alt="Final Draft">
+                <span>Final Draft</span>
+            </div>
+            <div class="software-item">
+                <img src="canva.svg" alt="Canva">
+                <span>Canva</span>
+            </div>
         </div>
-        <div class="software-item">
-            <img src="ae.svg" alt="After Effects">
-            <span>After Effects</span>
-        </div>
-        <div class="software-item">
-            <img src="davinci.png" alt="DaVinci Resolve">
-            <span>DaVinci Resolve</span>
-        </div>
-        <div class="software-item">
-            <img src="ps.svg" alt="Photoshop">
-            <span>Photoshop</span>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section class="reveal">
         <h2>Digital <span>Strategy</span></h2>
@@ -277,7 +247,7 @@
         <div class="contact-grid">
             <a href="mailto:workwithshlokkishore@gmail.com" class="contact-link">
                 <span>Email</span>
-                workwithshlok@gmail.com
+                workwithshlokkishore@gmail.com
             </a>
             <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank" class="contact-link">
                 <span>LinkedIn</span>
