@@ -9,51 +9,55 @@
 
 <title>Shlok Kishore | Filmmaker Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 font-family:'Inter',sans-serif;
 margin:0;
-background:#fafafa;
-color:#111;
+background:#FAFAFA;
+color:#111111;
 line-height:1.6;
 }
 
+/* HEADER */
+
 header{
 text-align:center;
-padding:100px 20px 70px;
+padding:100px 20px 80px;
+border-bottom:1px solid #EAEAEA;
 }
 
 .profile{
 width:100%;
-max-width:800px;
+max-width:850px;
 height:420px;
 object-fit:cover;
-border-radius:14px;
-box-shadow:0 15px 40px rgba(0,0,0,0.15);
+object-position:center;
+border-radius:12px;
 margin-bottom:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 header h1{
-font-size:56px;
+font-size:52px;
 font-weight:800;
-margin:0;
+margin:10px 0;
+letter-spacing:1px;
 }
 
-.tagline{
-font-size:20px;
-color:#666;
-margin-top:10px;
-}
-
-.bio{
+header p{
+color:#555;
 max-width:720px;
-margin:25px auto;
-font-size:17px;
-color:#444;
+margin:auto;
 }
+
+/* SECTIONS */
 
 section{
 padding:80px 10%;
@@ -61,10 +65,12 @@ padding:80px 10%;
 
 h2{
 font-size:32px;
-margin-bottom:40px;
-border-left:4px solid #c6a96b;
+margin-bottom:30px;
+border-left:4px solid #C4A36B;
 padding-left:12px;
 }
+
+/* FILMS */
 
 .films{
 display:grid;
@@ -73,23 +79,41 @@ gap:40px;
 }
 
 .film{
-background:white;
-border-radius:10px;
-padding:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+background:#FFFFFF;
+padding:22px;
+border-radius:12px;
+border:1px solid #EAEAEA;
+transition:0.3s;
+opacity:0;
+transform:translateY(40px);
 }
+
+.film.active{
+opacity:1;
+transform:translateY(0);
+}
+
+.film:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* VIDEO */
 
 .video{
 position:relative;
 cursor:pointer;
+border-radius:10px;
 overflow:hidden;
-border-radius:8px;
 }
 
 .video img{
 width:100%;
 display:block;
+border-radius:10px;
 }
+
+/* overlay */
 
 .video::after{
 content:"";
@@ -99,21 +123,22 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0);
-transition:.3s;
+transition:0.3s;
 }
 
+/* play icon */
+
 .video::before{
-content:"▶ WATCH";
+content:"▶";
 position:absolute;
 top:50%;
 left:50%;
-transform:translate(-50%,-50%);
+transform:translate(-50%,-50%) scale(0.6);
+font-size:60px;
 color:white;
-background:rgba(0,0,0,0.7);
-padding:10px 18px;
-border-radius:6px;
 opacity:0;
-transition:.3s;
+transition:0.3s;
+z-index:2;
 }
 
 .video:hover::after{
@@ -122,7 +147,10 @@ background:rgba(0,0,0,0.35);
 
 .video:hover::before{
 opacity:1;
+transform:translate(-50%,-50%) scale(1);
 }
+
+/* REMOVE OVERLAY AFTER PLAY */
 
 .video.playing::before,
 .video.playing::after{
@@ -133,26 +161,30 @@ display:none;
 width:100%;
 aspect-ratio:16/9;
 border:none;
+display:block;
 }
+
+/* SOCIAL MEDIA */
 
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
-margin-bottom:40px;
+margin-bottom:30px;
 }
 
 .stat{
-background:white;
+background:#FFFFFF;
 padding:25px;
 text-align:center;
 border-radius:10px;
-box-shadow:0 6px 20px rgba(0,0,0,0.08);
+border:1px solid #EAEAEA;
+transition:0.3s;
 }
 
-.stat h3{
-margin:0;
-font-size:28px;
+.stat:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
 .social-grid{
@@ -164,8 +196,15 @@ gap:20px;
 .social-grid img{
 width:100%;
 border-radius:10px;
-box-shadow:0 5px 18px rgba(0,0,0,0.08);
+transition:0.3s;
+border:1px solid #EAEAEA;
 }
+
+.social-grid img:hover{
+transform:scale(1.04);
+}
+
+/* SKILLS */
 
 .skills{
 display:flex;
@@ -174,28 +213,74 @@ gap:15px;
 }
 
 .skill{
-background:white;
-padding:12px 18px;
+background:#FFFFFF;
+padding:10px 16px;
 border-radius:8px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+border:1px solid #EAEAEA;
+transition:0.3s;
+font-weight:500;
 }
+
+.skill:hover{
+border-color:#C4A36B;
+}
+
+/* CONTACT */
 
 .contact{
 font-size:18px;
 line-height:2;
 }
 
-.contact a{
-color:#c6a96b;
+a{
+color:#C4A36B;
 text-decoration:none;
-font-weight:600;
+font-weight:500;
 }
+
+a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER */
 
 footer{
 text-align:center;
 padding:30px;
+border-top:1px solid #EAEAEA;
+margin-top:40px;
 color:#777;
-border-top:1px solid #e5e5e5;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header h1{
+font-size:36px;
+}
+
+.profile{
+height:300px;
+}
+
+section{
+padding:60px 7%;
+}
+
+}
+
+/* SCROLL ANIMATION */
+
+.reveal{
+opacity:0;
+transform:translateY(50px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 
 </style>
@@ -206,28 +291,47 @@ border-top:1px solid #e5e5e5;
 
 <header>
 
-<img src="profile(shlok).jpeg" class="profile">
+<img src="profile(shlok).jpeg" class="profile" alt="Shlok Kishore profile photo">
 
 <h1>Shlok Kishore</h1>
 
-<p class="tagline">Filmmaker • Storyteller • Media Enthusiast</p>
+<p>Filmmaker • Storyteller • Media Enthusiast</p>
 
-<p class="bio">
+<p>
 Filmmaker and media student specializing in storytelling, cinematography and digital media strategy.
-My work spans documentary filmmaking, short films and social media campaigns reaching large audiences.
+My work spans documentary filmmaking, short films and social media campaigns that reach large audiences.
 </p>
 
 </header>
 
-<section>
+<section class="reveal">
 
-<h2>Films</h2>
+<h2>Featured Films</h2>
 
 <div class="films">
 
 <div class="film">
+<h3>Bihari Mati Apna: Ganga Path Patna (2023)</h3>
+<p><b>Role:</b> Director & Screenplay</p>
+<p><b>Duration:</b> 9m 55s</p>
+<div class="video" onclick="playVideo(this,'Lv5qtAtIV7E')">
+<img src="https://img.youtube.com/vi/Lv5qtAtIV7E/maxresdefault.jpg">
+</div>
+</div>
+
+<div class="film">
+<h3>Stop War Awareness (2024)</h3>
+<p><b>Role:</b> Direction & Cinematography</p>
+<p><b>Duration:</b> 1m 45s</p>
+<div class="video" onclick="playVideo(this,'AWv2lH9_rAc')">
+<img src="https://img.youtube.com/vi/AWv2lH9_rAc/maxresdefault.jpg">
+</div>
+</div>
+
+<div class="film">
 <h3>Blurred (2025)</h3>
-<p>Cinematographer • 3m47s</p>
+<p><b>Role:</b> Cinematographer</p>
+<p><b>Duration:</b> 3m 47s</p>
 <div class="video" onclick="playVideo(this,'Hte7B5KoKj0')">
 <img src="https://img.youtube.com/vi/Hte7B5KoKj0/maxresdefault.jpg">
 </div>
@@ -235,7 +339,8 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 <div class="film">
 <h3>Maya (2024)</h3>
-<p>Direction, Screenplay, Cinematography & Editing</p>
+<p><b>Role:</b> Direction, Screenplay, Cinematography & Editing</p>
+<p><b>Duration:</b> 11m 4s</p>
 <div class="video" onclick="playVideo(this,'-wm6WEyKdTA')">
 <img src="https://img.youtube.com/vi/-wm6WEyKdTA/maxresdefault.jpg">
 </div>
@@ -243,7 +348,8 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 <div class="film">
 <h3>Ek Laash Ki Casting (2026)</h3>
-<p>Cinematography / DOP • 9m51s</p>
+<p><b>Role:</b> Cinematography / Director of Photography</p>
+<p><b>Duration:</b> 9m 51s</p>
 <div class="video" onclick="playVideo(this,'YAnR2zt4Qfo')">
 <img src="https://img.youtube.com/vi/YAnR2zt4Qfo/maxresdefault.jpg">
 </div>
@@ -253,23 +359,31 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 </section>
 
-<section>
+<section class="reveal">
 
 <h2>Social Media Management</h2>
 
-<p><b>Handle:</b> @dms_bcc<br>
-<b>Role:</b> Head of Official Media Team</p>
+<p>
+<b>Handle:</b> @dms_bcc  
+<br>
+<b>Role:</b> Head of Official Media Team — Department of Media Studies, CHRIST University
+</p>
 
 <div class="stats">
 
 <div class="stat">
-<h3>227K+</h3>
-<p>Views</p>
+<h3>411K+</h3>
+<p>Views (30 Days)</p>
 </div>
 
 <div class="stat">
 <h3>37K+</h3>
 <p>Interactions</p>
+</div>
+
+<div class="stat">
+<h3>22K+</h3>
+<p>Likes</p>
 </div>
 
 <div class="stat">
@@ -281,17 +395,17 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 <div class="social-grid">
 
-<img src="analytics1.jpeg">
-<img src="analytics2.jpeg">
-<img src="analytics3.jpeg">
-<img src="analytics4.jpeg">
-<img src="analytics5.jpeg">
+<img src="analytics 1.jpeg">
+<img src="analytics 2.jpeg">
+<img src="analytics 3.jpeg">
+<img src="analytics 4.jpeg">
+<img src="analytics 5.jpeg">
 
 </div>
 
 </section>
 
-<section>
+<section class="reveal">
 
 <h2>Skills</h2>
 
@@ -302,23 +416,28 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 <div class="skill">Screenwriting</div>
 <div class="skill">Documentary Filmmaking</div>
 <div class="skill">Video Editing</div>
+
 <div class="skill">Social Media Strategy</div>
 <div class="skill">Content Creation</div>
-<div class="skill">Leadership</div>
+<div class="skill">Digital Media Campaigns</div>
+
+<div class="skill">Leadership & Team Coordination</div>
 <div class="skill">Event Management</div>
+<div class="skill">Project Management</div>
+<div class="skill">Media Production Planning</div>
 
 </div>
 
 </section>
 
-<section>
+<section class="reveal">
 
 <h2>Contact</h2>
 
 <div class="contact">
 
 <p>Email:
-<a href="mailto:workwithshlokkishore@gmail.com">
+<a href="mailto:workwithshlokkishore@gmail.com?subject=Portfolio%20Inquiry">
 workwithshlokkishore@gmail.com
 </a>
 </p>
@@ -340,24 +459,35 @@ linkedin.com/in/shlok-kishore
 </section>
 
 <footer>
-
 <p>© 2026 Shlok Kishore</p>
-
 </footer>
 
 <script>
 
-function playVideo(element,id){
-
-element.classList.add("playing")
-
-element.innerHTML=`<iframe 
-src="https://www.youtube.com/embed/${id}?autoplay=1"
+function playVideo(element,videoId){
+element.classList.add("playing");
+element.innerHTML = `<iframe 
+src="https://www.youtube.com/embed/${videoId}?autoplay=1"
 allow="autoplay; encrypted-media"
 allowfullscreen>
-</iframe>`
-
+</iframe>`;
 }
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+}
+});
+});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+observer.observe(el);
+});
+
+document.querySelectorAll(".film").forEach(el=>{
+observer.observe(el);
+});
 
 </script>
 
