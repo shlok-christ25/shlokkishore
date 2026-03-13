@@ -16,29 +16,6 @@
 html{
 scroll-behavior:smooth;
 }
-.video{
-position:relative;
-cursor:pointer;
-border-radius:8px;
-overflow:hidden;
-}
-
-.video img{
-width:100%;
-display:block;
-}
-
-.play-button{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:60px;
-color:white;
-background:rgba(0,0,0,0.6);
-border-radius:50%;
-padding:10px 20px;
-}
 
 body{
 font-family:'Inter',sans-serif;
@@ -125,12 +102,29 @@ transform:translateY(-6px);
 box-shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 
-.film iframe{
+/* VIDEO THUMBNAILS */
+
+.video{
+cursor:pointer;
+border-radius:10px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.video img{
+width:100%;
+display:block;
+border-radius:10px;
+}
+
+.video:hover{
+transform:scale(1.02);
+}
+
+.video iframe{
 width:100%;
 aspect-ratio:16/9;
 border:none;
-border-radius:8px;
-margin:12px 0;
 }
 
 /* SOCIAL MEDIA */
@@ -284,14 +278,12 @@ My work spans documentary filmmaking, short films and social media campaigns tha
 <h3>Bihari Mati Apna: Ganga Path Patna (2023)</h3>
 
 <p><b>Role:</b> Director & Screenplay</p>
-
 <p><b>Duration:</b> 9m 55s</p>
 
 <div class="video" onclick="playVideo(this,'Lv5qtAtIV7E')">
 <img src="https://img.youtube.com/vi/Lv5qtAtIV7E/maxresdefault.jpg">
-<div class="play-button">▶</div>
 </div>
-  
+
 <p>
 Award-winning documentary that won the Best Screenplay Award at Amity Film Festival 2.0.
 Created while representing DPS Patna with a team of students and faculty.
@@ -304,14 +296,12 @@ Created while representing DPS Patna with a team of students and faculty.
 <h3>Stop War Awareness (2024)</h3>
 
 <p><b>Role:</b> Direction & Cinematography</p>
-
 <p><b>Duration:</b> 1m 45s</p>
 
 <div class="video" onclick="playVideo(this,'AWv2lH9_rAc')">
 <img src="https://img.youtube.com/vi/AWv2lH9_rAc/maxresdefault.jpg">
-<div class="play-button">▶</div>
 </div>
-  
+
 <p>
 Short awareness film highlighting the impact of war on common people.
 Filmed entirely on an iPhone.
@@ -324,12 +314,10 @@ Filmed entirely on an iPhone.
 <h3>Blurred (2025)</h3>
 
 <p><b>Role:</b> Cinematographer</p>
-
 <p><b>Duration:</b> 3m 47s</p>
 
 <div class="video" onclick="playVideo(this,'Hte7B5KoKj0')">
 <img src="https://img.youtube.com/vi/Hte7B5KoKj0/maxresdefault.jpg">
-<div class="play-button">▶</div>
 </div>
 
 <p>
@@ -343,12 +331,10 @@ A short film shot vertically to cater to mobile-first platforms and digital audi
 <h3>Maya (2024)</h3>
 
 <p><b>Role:</b> Direction, Screenplay, Cinematography & Editing</p>
-
 <p><b>Duration:</b> 11m 4s</p>
 
 <div class="video" onclick="playVideo(this,'-wm6WEyKdTA')">
 <img src="https://img.youtube.com/vi/-wm6WEyKdTA/maxresdefault.jpg">
-<div class="play-button">▶</div>
 </div>
 
 <p>
@@ -362,12 +348,10 @@ Psychological thriller exploring the philosophical concept of utopia and illusio
 <h3>Ek Laash Ki Casting (2026)</h3>
 
 <p><b>Role:</b> Cinematography / Director of Photography</p>
-
 <p><b>Duration:</b> 9m 51s</p>
 
 <div class="video" onclick="playVideo(this,'YAnR2zt4Qfo')">
 <img src="https://img.youtube.com/vi/YAnR2zt4Qfo/maxresdefault.jpg">
-<div class="play-button">▶</div>
 </div>
 
 <p>
@@ -420,11 +404,11 @@ Responsibilities included content planning, campaign management, collaborations,
 
 <div class="social-grid">
 
-<img src="analytics 1.jpeg" alt="Analytics screenshot 1">
-<img src="analytics 2.jpeg" alt="Analytics screenshot 2">
-<img src="analytics 3.jpeg" alt="Analytics screenshot 3">
-<img src="analytics 4.jpeg" alt="Analytics screenshot 4">
-<img src="analytics 5.jpeg" alt="Analytics screenshot 5">
+<img src="analytics 1.jpeg">
+<img src="analytics 2.jpeg">
+<img src="analytics 3.jpeg">
+<img src="analytics 4.jpeg">
+<img src="analytics 5.jpeg">
 
 </div>
 
@@ -436,21 +420,15 @@ Responsibilities included content planning, campaign management, collaborations,
 
 <div class="skills">
 
-<!-- Creative Skills -->
-
 <div class="skill">Film Direction</div>
 <div class="skill">Cinematography</div>
 <div class="skill">Screenwriting</div>
 <div class="skill">Documentary Filmmaking</div>
 <div class="skill">Video Editing</div>
 
-<!-- Media & Digital Skills -->
-
 <div class="skill">Social Media Strategy</div>
 <div class="skill">Content Creation</div>
 <div class="skill">Digital Media Campaigns</div>
-
-<!-- Leadership & Management -->
 
 <div class="skill">Leadership & Team Coordination</div>
 <div class="skill">Event Management</div>
@@ -467,22 +445,19 @@ Responsibilities included content planning, campaign management, collaborations,
 
 <div class="contact">
 
-<p>
-Email:
+<p>Email:
 <a href="mailto:workwithshlokkishore@gmail.com?subject=Portfolio%20Inquiry">
 workwithshlokkishore@gmail.com
 </a>
 </p>
 
-<p>
-LinkedIn:
+<p>LinkedIn:
 <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank">
 linkedin.com/in/shlok-kishore
 </a>
 </p>
 
-<p>
-Phone:
+<p>Phone:
 <a href="tel:+918789406546">
 +91 8789406546
 </a>
@@ -493,21 +468,17 @@ Phone:
 </section>
 
 <footer>
-
 <p>© 2026 Shlok Kishore</p>
-
 </footer>
 
 <script>
-  
+
 function playVideo(element,videoId){
-element.innerHTML = `<iframe width="100%" height="100%" 
-src="https://www.youtube.com/embed/${videoId}?autoplay=1"
-frameborder="0"
+element.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1"
 allow="autoplay; encrypted-media"
 allowfullscreen></iframe>`;
 }
-  
+
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
