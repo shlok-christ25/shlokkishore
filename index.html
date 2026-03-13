@@ -9,7 +9,6 @@
     <link rel="preload" href="ae.svg" as="image">
     <link rel="preload" href="davinci.png" as="image">
     <link rel="preload" href="ps.svg" as="image">
-    <link rel="preload" href="figma.svg" as="image">
     <link rel="preload" href="finaldraft.png" as="image">
     <link rel="preload" href="canva.svg" as="image">
     <link rel="preload" href="excel.svg" as="image">
@@ -80,7 +79,6 @@
         h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
         h2 span { color: var(--accent); }
 
-        /* FILM GRID */
         .films-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -137,7 +135,6 @@
         .film-info p { color: var(--text-dim); margin-top: 8px; font-size: 0.9rem; }
         .film-info b { color: var(--accent); }
 
-        /* SOFTWARE GRID */
         .software-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -151,13 +148,13 @@
             gap: 12px;
             text-align: center;
         }
-        .software-item img {
+        .software-item img, .software-item svg {
             width: 50px;
             height: 50px;
             object-fit: contain;
             transition: transform 0.3s ease;
         }
-        .software-item:hover img { transform: translateY(-5px); }
+        .software-item:hover img, .software-item:hover svg { transform: translateY(-5px); }
         .software-item span {
             font-size: 0.7rem;
             text-transform: uppercase;
@@ -166,7 +163,6 @@
             font-weight: 600;
         }
 
-        /* ANALYTICS */
         .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-bottom: 40px; }
         .stat-box { background: rgba(255,255,255,0.03); padding: 30px 10px; border-radius: 15px; text-align: center; border: 1px solid var(--border); }
         .stat-box h3 { font-size: 2.5rem; margin: 0; color: var(--accent); }
@@ -174,7 +170,6 @@
         .social-grid img { width: 100%; border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
         .social-grid img:hover { border-color: var(--accent); transform: scale(1.02); }
 
-        /* CONTACT */
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .contact-link { padding: 25px; background: var(--card-bg); border-radius: 15px; text-decoration: none; color: var(--text); border: 1px solid var(--border); transition: 0.3s; }
         .contact-link:hover { border-color: var(--accent); background: #1a1a1a; transform: translateY(-3px); }
@@ -271,25 +266,27 @@
     <section class="reveal">
         <h2>Creative & <span>Business Suite</span></h2>
         <div class="software-grid">
-            <div class="software-item"><img src="premiere.svg" alt="Premiere" width="50" height="50"><span>Premiere Pro</span></div>
-            <div class="software-item"><img src="ae.svg" alt="After Effects" width="50" height="50"><span>After Effects</span></div>
-            <div class="software-item"><img src="davinci.png" alt="DaVinci" width="50" height="50"><span>DaVinci Resolve</span></div>
-            <div class="software-item"><img src="ps.svg" alt="Photoshop" width="50" height="50"><span>Photoshop</span></div>
+            <div class="software-item"><img src="premiere.svg" alt="Premiere"><span>Premiere Pro</span></div>
+            <div class="software-item"><img src="ae.svg" alt="After Effects"><span>After Effects</span></div>
+            <div class="software-item"><img src="davinci.png" alt="DaVinci"><span>DaVinci Resolve</span></div>
+            <div class="software-item"><img src="ps.svg" alt="Photoshop"><span>Photoshop</span></div>
+            
             <div class="software-item">
-    <svg width="50" height="50" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 5px rgba(196, 163, 107, 0.3));">
-        <path d="M19 28.5C19 25.9837 20.0009 23.5706 21.7825 21.7891C23.564 20.0076 25.9771 19.0067 28.4933 19.0067C31.0096 19.0067 33.4227 20.0076 35.2042 21.7891C36.9858 23.5706 37.9867 25.9837 37.9867 28.5C37.9867 31.0163 36.9858 33.4294 35.2042 35.2109C33.4227 36.9924 31.0096 37.9933 28.4933 37.9933C25.9771 37.9933 23.564 36.9924 21.7825 35.2109C20.0009 33.4294 19 31.0163 19 28.5Z" fill="#1ABCFE"/>
-        <path d="M0 47.4933C0 44.9771 1.00089 42.564 2.78248 40.7825C4.56407 39.0009 6.9771 38 9.49333 38H19V47.4933C19 50.0096 17.9991 52.4227 16.2175 54.2042C14.4359 55.9858 12.0229 56.9867 9.49333 56.9867C6.9771 56.9867 4.56407 55.9858 2.78248 54.2042C1.00089 52.4227 0 50.0096 0 47.4933Z" fill="#0ACF83"/>
-        <path d="M0 28.5C0 25.9837 1.00089 23.5706 2.78248 21.7891C4.56407 20.0076 6.9771 19.0067 9.49333 19.0067H19V38H9.49333C6.9771 38 4.56407 36.9924 2.78248 35.2109C1.00089 33.4294 0 31.0163 0 28.5Z" fill="#A259FF"/>
-        <path d="M0 9.5C0 6.9837 1.00089 4.57059 2.78248 2.78906C4.56407 1.00753 6.9771 0.00665283 9.49333 0.00665283H19V19H9.49333C6.9771 19 4.56407 17.9924 2.78248 16.2109C1.00089 14.4294 0 12.0163 0 9.5Z" fill="#F24E1E"/>
-        <path d="M19 0.00665283H28.5C31.0163 0.00665283 33.4294 1.00753 35.2109 2.78906C36.9925 4.57059 37.9933 6.9837 37.9933 9.5C37.9933 12.0163 36.9925 14.4294 35.2109 16.2109C33.4294 17.9924 31.0163 19 28.5 19H19V0.00665283Z" fill="#FF7262"/>
-    </svg>
-    <span>Figma</span>
-</div>
-            <div class="software-item"><img src="finaldraft.png" alt="Final Draft" width="50" height="50"><span>Final Draft</span></div>
-            <div class="software-item"><img src="canva.svg" alt="Canva" width="50" height="50"><span>Canva</span></div>
-            <div class="software-item"><img src="excel.svg" alt="Excel" width="50" height="50"><span>MS Excel</span></div>
-            <div class="software-item"><img src="word.svg" alt="Word" width="50" height="50"><span>MS Word</span></div>
-            <div class="software-item"><img src="powerpoint.svg" alt="PowerPoint" width="50" height="50"><span>MS PowerPoint</span></div>
+                <svg width="50" height="50" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 5px rgba(196, 163, 107, 0.4));">
+                    <path d="M19 28.5C19 25.9837 20.0009 23.5706 21.7825 21.7891C23.564 20.0076 25.9771 19.0067 28.4933 19.0067C31.0096 19.0067 33.4227 20.0076 35.2042 21.7891C36.9858 23.5706 37.9867 25.9837 37.9867 28.5C37.9867 31.0163 36.9858 33.4294 35.2042 35.2109C33.4227 36.9924 31.0096 37.9933 28.4933 37.9933C25.9771 37.9933 23.564 36.9924 21.7825 35.2109C20.0009 33.4294 19 31.0163 19 28.5Z" fill="#1ABCFE"/>
+                    <path d="M0 47.4933C0 44.9771 1.00089 42.564 2.78248 40.7825C4.56407 39.0009 6.9771 38 9.49333 38H19V47.4933C19 50.0096 17.9991 52.4227 16.2175 54.2042C14.4359 55.9858 12.0229 56.9867 9.49333 56.9867C6.9771 56.9867 4.56407 55.9858 2.78248 54.2042C1.00089 52.4227 0 50.0096 0 47.4933Z" fill="#0ACF83"/>
+                    <path d="M0 28.5C0 25.9837 1.00089 23.5706 2.78248 21.7891C4.56407 20.0076 6.9771 19.0067 9.49333 19.0067H19V38H9.49333C6.9771 38 4.56407 36.9924 2.78248 35.2109C1.00089 33.4294 0 31.0163 0 28.5Z" fill="#A259FF"/>
+                    <path d="M0 9.5C0 6.9837 1.00089 4.57059 2.78248 2.78906C4.56407 1.00753 6.9771 0.00665283 9.49333 0.00665283H19V19H9.49333C6.9771 19 4.56407 17.9924 2.78248 16.2109C1.00089 14.4294 0 12.0163 0 9.5Z" fill="#F24E1E"/>
+                    <path d="M19 0.00665283H28.5C31.0163 0.00665283 33.4294 1.00753 35.2109 2.78906C36.9925 4.57059 37.9933 6.9837 37.9933 9.5C37.9933 12.0163 36.9925 14.4294 35.2109 16.2109C33.4294 17.9924 31.0163 19 28.5 19H19V0.00665283Z" fill="#FF7262"/>
+                </svg>
+                <span>Figma</span>
+            </div>
+
+            <div class="software-item"><img src="finaldraft.png" alt="Final Draft"><span>Final Draft</span></div>
+            <div class="software-item"><img src="canva.svg" alt="Canva"><span>Canva</span></div>
+            <div class="software-item"><img src="excel.svg" alt="Excel"><span>MS Excel</span></div>
+            <div class="software-item"><img src="word.svg" alt="Word"><span>MS Word</span></div>
+            <div class="software-item"><img src="powerpoint.svg" alt="PowerPoint"><span>MS PowerPoint</span></div>
         </div>
     </section>
 
