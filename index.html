@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -8,47 +9,41 @@
 
 <title>Shlok Kishore | Filmmaker Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-html{
-scroll-behavior:smooth;
-}
 
 body{
 font-family:'Inter',sans-serif;
 margin:0;
-background:#f8f8f8;
+background:#fafafa;
 color:#111;
+line-height:1.6;
 }
-
-/* HERO */
 
 header{
 text-align:center;
-padding:120px 20px 90px;
+padding:100px 20px 70px;
 }
 
 .profile{
 width:100%;
-max-width:900px;
+max-width:800px;
 height:420px;
 object-fit:cover;
-border-radius:16px;
-box-shadow:0 20px 40px rgba(0,0,0,0.15);
-margin-bottom:40px;
+border-radius:14px;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+margin-bottom:30px;
 }
 
 header h1{
-font-size:64px;
+font-size:56px;
 font-weight:800;
 margin:0;
-letter-spacing:1px;
 }
 
 .tagline{
-font-size:22px;
+font-size:20px;
 color:#666;
 margin-top:10px;
 }
@@ -58,23 +53,18 @@ max-width:720px;
 margin:25px auto;
 font-size:17px;
 color:#444;
-line-height:1.7;
 }
-
-/* SECTION */
 
 section{
 padding:80px 10%;
 }
 
 h2{
-font-size:34px;
+font-size:32px;
 margin-bottom:40px;
-border-left:5px solid #D4AF37;
-padding-left:15px;
+border-left:4px solid #c6a96b;
+padding-left:12px;
 }
-
-/* FILMS */
 
 .films{
 display:grid;
@@ -84,21 +74,16 @@ gap:40px;
 
 .film{
 background:white;
-border-radius:12px;
+border-radius:10px;
 padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-transition:0.3s;
-}
-
-.film:hover{
-transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
 .video{
 position:relative;
 cursor:pointer;
 overflow:hidden;
-border-radius:10px;
+border-radius:8px;
 }
 
 .video img{
@@ -114,26 +99,25 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(0,0,0,0);
-transition:0.3s;
+transition:.3s;
 }
 
 .video::before{
-content:"▶ Watch";
+content:"▶ WATCH";
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:20px;
-background:rgba(0,0,0,0.7);
 color:white;
-padding:10px 20px;
+background:rgba(0,0,0,0.7);
+padding:10px 18px;
 border-radius:6px;
 opacity:0;
-transition:0.3s;
+transition:.3s;
 }
 
 .video:hover::after{
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,0.35);
 }
 
 .video:hover::before{
@@ -151,31 +135,24 @@ aspect-ratio:16/9;
 border:none;
 }
 
-/* SOCIAL */
-
 .stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
 margin-bottom:40px;
 }
 
 .stat{
 background:white;
-padding:30px;
-border-radius:12px;
+padding:25px;
 text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+border-radius:10px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
 }
 
 .stat h3{
-font-size:30px;
 margin:0;
-}
-
-.stat p{
-margin:8px 0 0;
-color:#666;
+font-size:28px;
 }
 
 .social-grid{
@@ -187,10 +164,8 @@ gap:20px;
 .social-grid img{
 width:100%;
 border-radius:10px;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
+box-shadow:0 5px 18px rgba(0,0,0,0.08);
 }
-
-/* SKILLS */
 
 .skills{
 display:flex;
@@ -205,58 +180,22 @@ border-radius:8px;
 box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* CONTACT */
-
 .contact{
 font-size:18px;
 line-height:2;
 }
 
 .contact a{
-color:#D4AF37;
-font-weight:600;
+color:#c6a96b;
 text-decoration:none;
+font-weight:600;
 }
-
-.contact a:hover{
-text-decoration:underline;
-}
-
-/* FOOTER */
 
 footer{
 text-align:center;
 padding:30px;
 color:#777;
-margin-top:40px;
-border-top:1px solid #ddd;
-}
-
-/* ANIMATION */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-header h1{
-font-size:42px;
-}
-
-.profile{
-height:280px;
-}
-
+border-top:1px solid #e5e5e5;
 }
 
 </style>
@@ -274,13 +213,13 @@ height:280px;
 <p class="tagline">Filmmaker • Storyteller • Media Enthusiast</p>
 
 <p class="bio">
-Filmmaker and media student specializing in storytelling, cinematography and digital media strategy. 
+Filmmaker and media student specializing in storytelling, cinematography and digital media strategy.
 My work spans documentary filmmaking, short films and social media campaigns reaching large audiences.
 </p>
 
 </header>
 
-<section class="reveal">
+<section>
 
 <h2>Films</h2>
 
@@ -296,7 +235,7 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 <div class="film">
 <h3>Maya (2024)</h3>
-<p>Direction • Screenplay • Cinematography • Editing</p>
+<p>Direction, Screenplay, Cinematography & Editing</p>
 <div class="video" onclick="playVideo(this,'-wm6WEyKdTA')">
 <img src="https://img.youtube.com/vi/-wm6WEyKdTA/maxresdefault.jpg">
 </div>
@@ -304,7 +243,7 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 <div class="film">
 <h3>Ek Laash Ki Casting (2026)</h3>
-<p>Cinematography / DOP</p>
+<p>Cinematography / DOP • 9m51s</p>
 <div class="video" onclick="playVideo(this,'YAnR2zt4Qfo')">
 <img src="https://img.youtube.com/vi/YAnR2zt4Qfo/maxresdefault.jpg">
 </div>
@@ -314,7 +253,7 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 </section>
 
-<section class="reveal">
+<section>
 
 <h2>Social Media Management</h2>
 
@@ -352,7 +291,7 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 </section>
 
-<section class="reveal">
+<section>
 
 <h2>Skills</h2>
 
@@ -372,25 +311,25 @@ My work spans documentary filmmaking, short films and social media campaigns rea
 
 </section>
 
-<section class="reveal">
+<section>
 
 <h2>Contact</h2>
 
 <div class="contact">
 
-<p>Email:  
+<p>Email:
 <a href="mailto:workwithshlokkishore@gmail.com">
 workwithshlokkishore@gmail.com
 </a>
 </p>
 
-<p>LinkedIn:  
+<p>LinkedIn:
 <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank">
 linkedin.com/in/shlok-kishore
 </a>
 </p>
 
-<p>Phone:  
+<p>Phone:
 <a href="tel:+918789406546">
 +91 8789406546
 </a>
@@ -419,18 +358,6 @@ allowfullscreen>
 </iframe>`
 
 }
-
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("active")
-}
-})
-})
-
-document.querySelectorAll(".reveal").forEach(el=>{
-observer.observe(el)
-})
 
 </script>
 
