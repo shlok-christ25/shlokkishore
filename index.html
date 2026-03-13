@@ -116,10 +116,9 @@ transition:0.3s;
 width:100%;
 display:block;
 border-radius:10px;
-transition:0.3s;
 }
 
-/* dark overlay */
+/* overlay */
 
 .video::after{
 content:"";
@@ -147,8 +146,6 @@ transition:0.3s;
 z-index:2;
 }
 
-/* hover effect */
-
 .video:hover::after{
 background:rgba(0,0,0,0.35);
 }
@@ -160,6 +157,15 @@ transform:translate(-50%,-50%) scale(1);
 
 .video:hover{
 transform:scale(1.02);
+}
+
+/* VIDEO PLAYER FIX */
+
+.video iframe{
+width:100%;
+aspect-ratio:16/9;
+border:none;
+display:block;
 }
 
 /* SOCIAL MEDIA */
@@ -311,7 +317,6 @@ My work spans documentary filmmaking, short films and social media campaigns tha
 <div class="film">
 
 <h3>Bihari Mati Apna: Ganga Path Patna (2023)</h3>
-
 <p><b>Role:</b> Director & Screenplay</p>
 <p><b>Duration:</b> 9m 55s</p>
 
@@ -329,7 +334,6 @@ Created while representing DPS Patna with a team of students and faculty.
 <div class="film">
 
 <h3>Stop War Awareness (2024)</h3>
-
 <p><b>Role:</b> Direction & Cinematography</p>
 <p><b>Duration:</b> 1m 45s</p>
 
@@ -347,7 +351,6 @@ Filmed entirely on an iPhone.
 <div class="film">
 
 <h3>Blurred (2025)</h3>
-
 <p><b>Role:</b> Cinematographer</p>
 <p><b>Duration:</b> 3m 47s</p>
 
@@ -364,7 +367,6 @@ A short film shot vertically to cater to mobile-first platforms and digital audi
 <div class="film">
 
 <h3>Maya (2024)</h3>
-
 <p><b>Role:</b> Direction, Screenplay, Cinematography & Editing</p>
 <p><b>Duration:</b> 11m 4s</p>
 
@@ -381,7 +383,6 @@ Psychological thriller exploring the philosophical concept of utopia and illusio
 <div class="film">
 
 <h3>Ek Laash Ki Casting (2026)</h3>
-
 <p><b>Role:</b> Cinematography / Director of Photography</p>
 <p><b>Duration:</b> 9m 51s</p>
 
@@ -407,10 +408,6 @@ A comedy short film revolving around the unusual casting process for a “dead�
 <b>Handle:</b> @dms_bcc  
 <br>
 <b>Role:</b> Head of Official Media Team — Department of Media Studies, CHRIST University
-</p>
-
-<p>
-Responsibilities included content planning, campaign management, collaborations, and performance analytics.
 </p>
 
 <div class="stats">
@@ -509,9 +506,11 @@ linkedin.com/in/shlok-kishore
 <script>
 
 function playVideo(element,videoId){
-element.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+element.innerHTML = `<iframe 
+src="https://www.youtube.com/embed/${videoId}?autoplay=1"
 allow="autoplay; encrypted-media"
-allowfullscreen></iframe>`;
+allowfullscreen>
+</iframe>`;
 }
 
 const observer = new IntersectionObserver(entries=>{
