@@ -124,7 +124,7 @@
         .film-info p { margin: 5px 0; font-size: 0.95rem; }
         .film-info b { color: var(--accent); }
 
-        /* --- SOFTWARE LOGOS --- */
+        /* --- SOFTWARE LOGOS FIXED --- */
         .software-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -137,24 +137,28 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            filter: grayscale(1);
+            gap: 12px;
             transition: 0.3s ease;
-            opacity: 0.7;
         }
 
-        .software-item:hover { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
-
         .software-item img {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
+            filter: brightness(0) invert(1); /* Makes logos white to match theme */
+            transition: 0.3s ease;
+        }
+
+        .software-item:hover img {
+            filter: none; /* Shows original color on hover */
+            transform: scale(1.15);
         }
 
         .software-item span {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-dim);
+            font-weight: 600;
         }
 
         /* --- DIGITAL STRATEGY / ANALYTICS --- */
@@ -286,27 +290,27 @@
         <h2>Creative <span>Suite</span></h2>
         <div class="software-grid">
             <div class="software-item">
-                <img src="https://cdn.simpleicons.org/adobepremierepro/EA77FF" alt="Premiere Pro">
+                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/adobepremierepro.svg" alt="Premiere Pro">
                 <span>Premiere Pro</span>
             </div>
             <div class="software-item">
-                <img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" alt="After Effects">
+                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/adobeaftereffects.svg" alt="After Effects">
                 <span>After Effects</span>
             </div>
             <div class="software-item">
-                <img src="https://cdn.simpleicons.org/davinciresolve/000000" alt="DaVinci Resolve">
+                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/davinciresolve.svg" alt="DaVinci Resolve">
                 <span>DaVinci Resolve</span>
             </div>
             <div class="software-item">
-                <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" alt="Photoshop">
+                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/adobephotoshop.svg" alt="Photoshop">
                 <span>Photoshop</span>
             </div>
             <div class="software-item">
-                <img src="https://cdn.simpleicons.org/adobelightroom/31A8FF" alt="Lightroom">
+                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/adobelightroom.svg" alt="Lightroom">
                 <span>Lightroom</span>
             </div>
             <div class="software-item">
-                <img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Canva">
+                <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/canva.svg" alt="Canva">
                 <span>Canva</span>
             </div>
         </div>
