@@ -19,30 +19,31 @@
             --border: #222222;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; } 
-
+        * { box-sizing: border-box; } 
         html, body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            margin: 0; 
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+            background-color: var(--bg); color: var(--text); margin: 0; 
+            font-family: 'Inter', sans-serif; overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Apple-Style Smooth Scroll Container - Disabled on Mobile for Native Feel */
         #main-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; }
         @media (max-width: 768px) { #main-canvas { position: relative; height: auto; } }
 
-        /* Navigation */
+        /* HEADER BOX ON SCROLL */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 20px 6%;
+            position: fixed; top: 0; width: 100%; padding: 25px 6%;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 2000; transition: 0.5s;
+            z-index: 2000; transition: all 0.4s ease;
         }
-        .logo { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--accent); letter-spacing: 2px; font-size: 1.2rem; }
+        nav.scrolled {
+            padding: 15px 6%;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--accent); letter-spacing: 2px; font-size: 1.1rem; }
 
-        /* Hero */
+        /* HERO */
         header { 
             height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
@@ -52,131 +53,71 @@
             background: linear-gradient(to bottom, rgba(5,5,5,0.1), var(--bg)), url('profile(shlok).jpeg');
             background-size: cover; background-position: center; z-index: 0;
         }
-        .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 20px; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); margin: 0; line-height: 1; color: var(--text); }
-        .hero-subtitle { margin-top: 20px; font-weight: 300; color: var(--text-dim); letter-spacing: 4px; text-transform: uppercase; font-size: clamp(0.7rem, 2vw, 0.9rem); }
+        .hero-content { position: relative; z-index: 1; text-align: center; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); margin: 0; color: var(--text); }
+        .hero-subtitle { margin-top: 15px; font-weight: 300; color: var(--text-dim); letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; }
 
-        /* Netflix Horizontal Slider */
-        .slider-container { position: relative; width: 100%; overflow: visible; padding: 0; }
-        .section-label { padding-left: 6%; font-size: 1rem; font-weight: 800; margin-bottom: 25px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
-        
+        /* HORIZONTAL ROWS */
+        .section-label { padding-left: 6%; font-size: 0.9rem; font-weight: 800; margin-bottom: 20px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
         .netflix-row {
-            display: flex; overflow-x: auto; overflow-y: hidden; padding: 20px 6% 60px;
-            gap: 20px; scroll-behavior: smooth; scrollbar-width: none;
+            display: flex; overflow-x: auto; padding: 10px 6% 40px; gap: 20px;
+            scroll-behavior: smooth; scrollbar-width: none;
         }
         .netflix-row::-webkit-scrollbar { display: none; }
 
-        .slider-btn {
-            position: absolute; top: 40%; transform: translateY(-50%);
-            width: 60px; height: 60px; background: rgba(0,0,0,0.7); border: 1px solid var(--border);
-            color: var(--accent); border-radius: 50%; z-index: 100; cursor: pointer;
-            opacity: 0; transition: 0.3s; display: flex; align-items: center; justify-content: center;
-        }
-        .slider-container:hover .slider-btn { opacity: 1; }
-        .btn-left { left: 2%; } .btn-right { right: 2%; }
-        @media (max-width: 768px) { .slider-btn { display: none; } } /* Hide buttons on mobile */
-
-        .poster-card {
-            flex: 0 0 320px; aspect-ratio: 16/9; position: relative;
-            border-radius: 12px; transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-        }
-        @media (max-width: 768px) { .poster-card { flex: 0 0 280px; } }
-
-        .poster-card:hover { transform: translateY(-10px); }
-        .poster-img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
-        
+        /* FILM THUMBNAILS - ADJUSTED FONT */
+        .poster-card { flex: 0 0 320px; aspect-ratio: 16/9; position: relative; border-radius: 8px; transition: 0.4s; cursor: pointer; border: 1px solid var(--border); }
+        .poster-card:hover { transform: scale(1.05); border-color: var(--accent); }
+        .poster-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
         .poster-info {
-            position: absolute; bottom: 0; width: 100%; padding: 15px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            border-radius: 0 0 12px 12px;
+            position: absolute; bottom: 0; width: 100%; padding: 12px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9)); border-radius: 0 0 8px 8px;
         }
-        .poster-info h3 { font-size: 0.95rem; margin: 0; font-weight: 800; color: #fff; text-transform: uppercase; }
-        .poster-info p { font-size: 0.7rem; color: var(--accent); margin-top: 5px; font-weight: 600; }
+        .poster-info h3 { font-size: 0.8rem; margin: 0; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+        .poster-info p { font-size: 0.65rem; color: var(--accent); margin-top: 3px; font-weight: 600; }
 
-        /* BTS Section - Fixed Resize */
-        .bts-grid { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 15px; 
-            padding: 0 6%; 
-            margin-bottom: 80px; 
-        }
-        @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
-        
-        .bts-box { 
-            aspect-ratio: 1/1; 
-            border-radius: 8px; 
-            overflow: hidden; 
-            border: 1px solid var(--border);
-            transition: 0.4s ease;
-        }
-        .bts-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .bts-box:hover img { transform: scale(1.1); }
+        /* BTS GRID */
+        .bts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 6%; margin-bottom: 60px; }
+        @media (max-width: 768px) { .bts-grid { grid-template-columns: repeat(2, 1fr); } }
+        .bts-box { aspect-ratio: 1/1; border-radius: 5px; overflow: hidden; border: 1px solid var(--border); }
+        .bts-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+        .bts-box:hover img { filter: brightness(1.2); }
 
-        /* Software Cluster */
-        .software-cluster {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 30px; padding: 40px 6%; justify-items: center;
-        }
-        .sw-item { position: relative; text-align: center; }
-        .sw-item img { width: 45px; opacity: 0.8; transition: 0.4s; }
-        .sw-item:hover img { transform: translateY(-8px); filter: drop-shadow(0 0 10px var(--accent)); }
-        .sw-item span { display: block; font-size: 0.65rem; margin-top: 10px; color: var(--text-dim); font-weight: 600; }
+        /* ANALYTICS - DEFAULT SIZE */
+        .strategy-row { display: flex; gap: 15px; padding: 0 6% 40px; overflow-x: auto; scrollbar-width: none; }
+        .strategy-row::-webkit-scrollbar { display: none; }
+        .strategy-row img { height: 220px; border-radius: 8px; border: 1px solid var(--border); transition: 0.4s; }
+        .strategy-row img:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 5px 15px rgba(196,163,107,0.3); }
 
-        /* Analytics - LARGE & GLOWING */
-        .analytics-container { 
-            padding: 0 6%; 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
-        }
-        @media (max-width: 768px) { .analytics-container { grid-template-columns: 1fr; } }
+        /* SOFTWARE CLUSTER */
+        .software-cluster { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 30px; padding: 40px 6%; }
+        .sw-item { text-align: center; transition: 0.3s; }
+        .sw-item img { width: 40px; opacity: 0.7; transition: 0.3s; }
+        .sw-item:hover img { opacity: 1; transform: translateY(-5px); filter: drop-shadow(0 0 8px var(--accent)); }
+        .sw-item span { display: block; font-size: 0.6rem; margin-top: 8px; color: var(--text-dim); font-weight: 600; }
 
-        .analytics-item { 
-            position: relative; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            border: 1px solid var(--border);
-            transition: 0.5s;
+        /* LET'S CONNECT - COLORFUL & COMPACT */
+        .contact-panel { padding: 60px 6%; text-align: center; }
+        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .contact-link {
+            text-decoration: none; color: #fff; font-size: 0.9rem; font-weight: 600;
+            padding: 12px 25px; border-radius: 50px; display: flex; align-items: center; gap: 10px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border); transition: 0.3s;
         }
-        .analytics-item img { width: 100%; height: auto; display: block; transition: 0.5s; }
-        
-        .analytics-item:hover { 
-            border-color: var(--accent); 
-            box-shadow: 0 0 40px rgba(196, 163, 107, 0.2);
-            transform: scale(1.02);
-        }
+        .link-email:hover { background: #c71610; border-color: #ff4d4d; }
+        .link-linkedin:hover { background: #0077b5; border-color: #00a0dc; }
+        .link-phone:hover { background: #25d366; border-color: #4df089; }
 
-        /* Stats */
-        .stats-grid { display: flex; justify-content: space-around; padding: 60px 6%; text-align: center; }
-        .stat-unit h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin: 0; color: var(--accent); font-family: 'Playfair Display', serif; }
-        .stat-unit p { font-size: 0.7rem; letter-spacing: 3px; color: var(--text-dim); text-transform: uppercase; margin-top: 10px; }
-
-        /* Let's Connect - COMPACT */
-        .contact-panel { padding: 60px 6%; border-top: 1px solid var(--border); }
-        .contact-links { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .contact-links a { 
-            text-decoration: none; color: var(--text); font-size: 1rem; 
-            transition: 0.3s; display: flex; align-items: center; gap: 10px; 
-            padding: 10px 20px; border: 1px solid var(--border); border-radius: 50px;
-        }
-        .contact-links a:hover { color: var(--accent); border-color: var(--accent); background: rgba(196,163,107,0.05); }
-
-        /* CV Button with Graphic Element */
+        /* CV BUTTON WITH GRAPHIC */
         .cv-btn { 
             position: fixed; bottom: 30px; right: 30px; background: var(--accent); 
             color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 800; 
             text-decoration: none; z-index: 3000; font-size: 0.75rem; 
-            display: flex; align-items: center; gap: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        /* Graphic Element (Animated Line) */
-        .cv-btn::before {
-            content: ""; width: 20px; height: 2px; background: #000;
-            display: inline-block; transition: 0.3s;
-        }
-        .cv-btn:hover::before { width: 35px; }
+        .cv-graphic { width: 18px; height: 18px; border: 2px solid #000; position: relative; display: flex; align-items: center; justify-content: center; }
+        .cv-graphic::after { content: ""; width: 2px; height: 8px; background: #000; position: absolute; top: 2px; animation: bounce 1s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
 
         footer { padding: 40px 6%; text-align: center; color: var(--text-dim); font-size: 0.7rem; border-top: 1px solid #111; letter-spacing: 2px; }
 
@@ -187,7 +128,7 @@
 <body>
 
     <a href="Shlok_Kishore_CV.pdf" target="_blank" class="cv-btn">
-        DOWNLOAD CV
+        <div class="cv-graphic"></div> DOWNLOAD CV
     </a>
 
     <nav id="navbar">
@@ -206,55 +147,29 @@
                 </div>
             </header>
 
-            <section style="padding: 80px 0;">
+            <section style="padding: 60px 0;">
                 <p class="section-label">Featured Productions</p>
-                <div class="slider-container">
-                    <button class="slider-btn btn-left" onclick="scrollSlider(-1)"><i class="fas fa-arrow-left"></i></button>
-                    <div class="netflix-row" id="filmRow">
-                        <div class="poster-card" onclick="openVid('YAnR2zt4Qfo')">
-                            <img src="https://img.youtube.com/vi/YAnR2zt4Qfo/maxresdefault.jpg" class="poster-img">
-                            <div class="poster-info">
-                                <h3>Ek Laash Ki Casting (2026)</h3>
-                                <p>Cinematography</p>
-                            </div>
-                        </div>
-                        <div class="poster-card" onclick="openVid('Lv5qtAtIV7E')">
-                            <img src="https://img.youtube.com/vi/Lv5qtAtIV7E/maxresdefault.jpg" class="poster-img">
-                            <div class="poster-info">
-                                <h3>Bihari Mati Apna: A Documentary (2023)</h3>
-                                <p>Direction & Screenplay</p>
-                            </div>
-                        </div>
-                        <div class="poster-card" onclick="openVid('Hte7B5KoKj0')">
-                            <img src="https://img.youtube.com/vi/Hte7B5KoKj0/maxresdefault.jpg" class="poster-img">
-                            <div class="poster-info">
-                                <h3>Blurred (2025)</h3>
-                                <p>Cinematography</p>
-                            </div>
-                        </div>
-                        <div class="poster-card" onclick="openVid('AWv2lH9_rAc')">
-                            <img src="https://img.youtube.com/vi/AWv2lH9_rAc/maxresdefault.jpg" class="poster-img">
-                            <div class="poster-info">
-                                <h3>Stop War Awareness (2024)</h3>
-                                <p>Direction & Cinematography</p>
-                            </div>
-                        </div>
-                        <div class="poster-card" onclick="openVid('-wm6WEyKdTA')">
-                            <img src="https://img.youtube.com/vi/-wm6WEyKdTA/maxresdefault.jpg" class="poster-img">
-                            <div class="poster-info">
-                                <h3>Maya (2024)</h3>
-                                <p>Direction, Screenplay, DOP, & Editing</p>
-                            </div>
-                        </div>
-                        <div class="poster-card" onclick="openVid('-FwVpQ6fGtc')">
-                            <img src="https://img.youtube.com/vi/-FwVpQ6fGtc/maxresdefault.jpg" class="poster-img">
-                            <div class="poster-info">
-                                <h3>When the Music Stops (2025)</h3>
-                                <p>Direction & Cinematography</p>
-                            </div>
-                        </div>
+                <div class="netflix-row">
+                    <div class="poster-card" onclick="openVid('YAnR2zt4Qfo')">
+                        <img src="https://img.youtube.com/vi/YAnR2zt4Qfo/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info"><h3>EK LAASH KI CASTING (2026)</h3><p>Cinematography</p></div>
                     </div>
-                    <button class="slider-btn btn-right" onclick="scrollSlider(1)"><i class="fas fa-arrow-right"></i></button>
+                    <div class="poster-card" onclick="openVid('Lv5qtAtIV7E')">
+                        <img src="https://img.youtube.com/vi/Lv5qtAtIV7E/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info"><h3>BIHARI MATI APNA (2023)</h3><p>Direction & Screenplay</p></div>
+                    </div>
+                    <div class="poster-card" onclick="openVid('Hte7B5KoKj0')">
+                        <img src="https://img.youtube.com/vi/Hte7B5KoKj0/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info"><h3>BLURRED (2025)</h3><p>Cinematography</p></div>
+                    </div>
+                    <div class="poster-card" onclick="openVid('AWv2lH9_rAc')">
+                        <img src="https://img.youtube.com/vi/AWv2lH9_rAc/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info"><h3>STOP WAR AWARENESS (2024)</h3><p>Direction & Cinematography</p></div>
+                    </div>
+                    <div class="poster-card" onclick="openVid('-wm6WEyKdTA')">
+                        <img src="https://img.youtube.com/vi/-wm6WEyKdTA/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info"><h3>MAYA (2024)</h3><p>DOP & Editing</p></div>
+                    </div>
                 </div>
             </section>
 
@@ -284,68 +199,56 @@
             </section>
 
             <section>
-                <p class="section-label">Digital Impact & Strategy</p>
-                <div class="stats-grid">
-                    <div class="stat-unit"><h2>411K+</h2><p>Views</p></div>
-                    <div class="stat-unit"><h2>37K+</h2><p>Interactions</p></div>
-                    <div class="stat-unit"><h2>22K+</h2><p>Likes</p></div>
-                </div>
-                <div class="analytics-container">
-                    <div class="analytics-item"><img src="analytics 1.jpeg"></div>
-                    <div class="analytics-item"><img src="analytics 2.jpeg"></div>
-                    <div class="analytics-item"><img src="analytics 3.jpeg"></div>
-                    <div class="analytics-item"><img src="analytics 4.jpeg"></div>
-                    <div class="analytics-item"><img src="analytics 5.jpeg"></div>
+                <p class="section-label">Digital Impact & Analysis</p>
+                <div class="strategy-row">
+                    <img src="analytics 1.jpeg">
+                    <img src="analytics 2.jpeg">
+                    <img src="analytics 3.jpeg">
+                    <img src="analytics 4.jpeg">
+                    <img src="analytics 5.jpeg">
                 </div>
             </section>
 
             <section class="contact-panel">
-                <p class="section-label" style="text-align:center; padding:0; margin-bottom:40px;">Let's Connect</p>
+                <p class="section-label" style="text-align:center; padding:0; margin-bottom:30px;">Let's Connect</p>
                 <div class="contact-links">
-                    <a href="mailto:workwithshlokkishore@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="tel:+918789406546"><i class="fas fa-phone"></i> +91 87894 06546</a>
+                    <a href="mailto:workwithshlokkishore@gmail.com" class="contact-link link-email"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank" class="contact-link link-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="tel:+918789406546" class="contact-link link-phone"><i class="fas fa-phone"></i> +91 87894 06546</a>
                 </div>
             </section>
 
-            <footer>
-                © 2026 SHLOK KISHORE. ALL RIGHTS RESERVED.
-            </footer>
+            <footer>© 2026 SHLOK KISHORE. ALL RIGHTS RESERVED.</footer>
         </div>
     </div>
 
     <script>
         const isMobile = window.innerWidth <= 768;
-        let current = 0;
-        let target = 0;
-        const ease = 0.08;
+        let current = 0; let target = 0; const ease = 0.08;
         const viewport = document.getElementById('viewport');
+        const navbar = document.getElementById('navbar');
 
-        // Smooth Scroll Logic (Desktop Only)
         if (!isMobile) {
             function lerp(start, end, t) { return start * (1 - t) + end * t; }
             function smoothScroll() {
-                target = window.scrollY;
-                current = lerp(current, target, ease);
+                target = window.scrollY; current = lerp(current, target, ease);
                 viewport.style.transform = `translateY(-${current}px)`;
                 
-                const heroBg = document.getElementById('hero-bg');
-                heroBg.style.transform = `scale(${1.2 - current * 0.0002}) translateY(${current * 0.3}px)`;
-                
+                // Navbar Background Logic
+                if (target > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+
                 requestAnimationFrame(smoothScroll);
             }
             function updateHeight() { document.body.style.height = viewport.getBoundingClientRect().height + 'px'; }
             window.addEventListener('resize', updateHeight);
             window.addEventListener('load', updateHeight);
-            updateHeight();
-            smoothScroll();
-        }
-
-        // Horizontal Slider
-        function scrollSlider(direction) {
-            const filmRow = document.getElementById('filmRow');
-            const amount = 340 * direction;
-            filmRow.scrollBy({ left: amount, behavior: 'smooth' });
+            updateHeight(); smoothScroll();
+        } else {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
         }
 
         function openVid(id) { window.open(`https://www.youtube.com/watch?v=${id}`, '_blank'); }
