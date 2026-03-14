@@ -19,7 +19,7 @@
             --border: #222222;
         }
 
-        * { box-sizing: border-box; } 
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; } 
 
         html, body { 
             background-color: var(--bg); 
@@ -30,14 +30,14 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Desktop Smooth Scroll Container */
-        #main-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; }
+        /* Smooth Scroll Container */
+        #main-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; transition: opacity 0.5s; }
 
         /* Navigation */
         nav {
             position: fixed; top: 0; width: 100%; padding: 20px 6%;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 2000; transition: 0.5s;
+            z-index: 2000; transition: 0.4s ease;
         }
         .logo { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--accent); letter-spacing: 2px; font-size: 1.2rem; }
 
@@ -50,101 +50,117 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, rgba(5,5,5,0.1), var(--bg)), url('profile(shlok).jpeg');
             background-size: cover; background-position: center; z-index: 0;
+            will-change: transform;
         }
         .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 20px; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); margin: 0; line-height: 0.9; }
-        .hero-subtitle { margin-top: 20px; font-weight: 300; color: var(--text-dim); letter-spacing: 3px; text-transform: uppercase; font-size: clamp(0.6rem, 2vw, 0.8rem); }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 8rem); margin: 0; line-height: 0.9; color: var(--text); text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .hero-subtitle { margin-top: 20px; font-weight: 300; color: var(--text-dim); letter-spacing: 4px; text-transform: uppercase; font-size: clamp(0.6rem, 1.5vw, 0.9rem); }
 
-        /* Films Slider */
-        .section-label { padding-left: 6%; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
-        .slider-container { position: relative; width: 100%; overflow: visible; }
+        /* Section Styling */
+        section { padding: 80px 0; }
+        .section-label { padding-left: 6%; font-size: 0.9rem; font-weight: 800; margin-bottom: 30px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; }
+
+        /* Horizontal Slider (Netflix Style) */
+        .slider-container { position: relative; width: 100%; }
         .netflix-row {
-            display: flex; overflow-x: auto; overflow-y: hidden; padding: 30px 6% 60px;
+            display: flex; overflow-x: auto; padding: 20px 6% 60px;
             gap: 20px; scroll-behavior: smooth; scrollbar-width: none;
         }
         .netflix-row::-webkit-scrollbar { display: none; }
-        .poster-card { flex: 0 0 320px; aspect-ratio: 16/9; position: relative; border-radius: 8px; transition: 0.4s; cursor: pointer; }
-        .poster-card:hover { transform: scale(1.1); z-index: 10; }
-        .poster-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
 
-        /* BTS - Mobile Friendly */
-        .bts-row { display: flex; gap: 10px; padding: 0 6%; margin-bottom: 80px; flex-wrap: wrap; }
-        .bts-box { flex: 1 1 45%; aspect-ratio: 1/1; border-radius: 6px; overflow: hidden; filter: grayscale(100%); transition: 0.5s; }
-        .bts-box:hover { filter: grayscale(0%); transform: scale(1.02); }
+        .poster-card {
+            flex: 0 0 clamp(280px, 30vw, 450px); aspect-ratio: 16/9; position: relative;
+            border-radius: 8px; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            cursor: pointer;
+        }
+        .poster-card:hover { transform: scale(1.1) translateY(-10px); z-index: 10; }
+        .poster-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.05); }
+        
+        .poster-info {
+            position: absolute; bottom: 0; width: 100%; padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            opacity: 0; transition: 0.3s; border-radius: 0 0 8px 8px;
+        }
+        .poster-card:hover .poster-info { opacity: 1; }
+        .poster-info h3 { font-size: 1rem; margin: 0; font-family: 'Playfair Display', serif; color: #fff; }
+        .poster-info p { font-size: 0.7rem; color: var(--accent); margin-top: 5px; font-weight: 600; }
+
+        /* BTS Interaction */
+        .bts-row { display: flex; gap: 10px; padding: 0 6%; height: 400px; }
+        .bts-box { flex: 1; border-radius: 8px; overflow: hidden; opacity: 0.4; transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1); filter: grayscale(100%); }
+        .bts-box:hover { opacity: 1; flex: 3; filter: grayscale(0%); box-shadow: 0 0 30px rgba(196, 163, 107, 0.2); }
         .bts-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Software Icons */
+        /* Software Glow-Grid */
         .software-cluster {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 30px; padding: 40px 10%; justify-items: center;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 30px; padding: 40px 6%; justify-items: center;
         }
-        .sw-item img { width: 45px; opacity: 0.6; transition: 0.3s; }
-        .sw-item:hover img { opacity: 1; transform: translateY(-8px); }
-        .sw-item span { display: block; font-size: 0.6rem; margin-top: 8px; color: var(--text-dim); text-align: center; }
+        .sw-item { position: relative; transition: 0.4s; text-align: center; padding: 20px; }
+        .sw-item img { width: 45px; height: 45px; object-fit: contain; opacity: 0.6; transition: 0.4s; }
+        .sw-item:hover img { opacity: 1; transform: scale(1.2); }
+        .sw-item::before {
+            content: ""; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0; transform: translate(-50%, -50%); transition: 0.6s; z-index: -1;
+        }
+        .sw-item:hover::before { width: 120px; height: 120px; opacity: 0.25; }
+        .sw-item span { display: block; font-size: 0.65rem; margin-top: 15px; color: var(--text-dim); font-weight: 600; letter-spacing: 1px; }
 
-        /* Analytics - LARGE & ZOOM EFFECT */
-        .strategy-row { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            padding: 40px 6%; 
-        }
-        .analytics-container { overflow: hidden; border-radius: 12px; border: 1px solid var(--border); transition: 0.4s; }
-        .analytics-container img { width: 100%; height: auto; display: block; transition: 0.6s ease; }
-        .analytics-container:hover { border-color: var(--accent); }
-        .analytics-container:hover img { transform: scale(1.1); }
+        /* Analytics - LARGE & GLOWING */
+        .stats-grid { display: flex; justify-content: space-around; padding: 60px 6%; text-align: center; flex-wrap: wrap; gap: 30px; }
+        .stat-unit h2 { font-size: clamp(3rem, 6vw, 5rem); margin: 0; color: var(--accent); font-family: 'Playfair Display', serif; }
+        .stat-unit p { text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; color: var(--text-dim); margin-top: 10px; }
 
-        /* Let's Connect - COMPACTED */
-        .contact-panel { padding: 80px 6%; background: #080808; border-top: 1px solid var(--border); }
-        .contact-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 30px; 
+        .strategy-row { display: flex; gap: 30px; padding: 40px 6%; overflow-x: auto; scrollbar-width: none; align-items: center; }
+        .strategy-row::-webkit-scrollbar { display: none; }
+        .strategy-row img { 
+            height: clamp(350px, 50vh, 550px); 
+            border-radius: 15px; 
+            border: 1px solid var(--border); 
+            transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
         }
-        .contact-link { 
-            text-decoration: none; 
-            color: var(--text); 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            padding: 20px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 10px;
-            transition: 0.3s;
+        .strategy-row img:hover { 
+            transform: scale(1.05) rotate(1deg); 
+            border-color: var(--accent); 
+            box-shadow: 0 20px 80px rgba(196, 163, 107, 0.15);
         }
-        .contact-link:hover { background: rgba(196, 163, 107, 0.1); transform: translateY(-5px); }
-        .contact-link i { color: var(--accent); font-size: 1.2rem; }
-        .contact-link span { font-size: 0.9rem; font-weight: 400; color: var(--text-dim); }
-        .contact-link b { display: block; font-size: 1rem; color: #fff; margin-top: 2px; }
 
-        /* Floating CV */
-        .cv-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 800; text-decoration: none; z-index: 3000; font-size: 0.75rem; transition: 0.3s; }
+        /* Compact Let's Connect */
+        .contact-panel { padding: 60px 6%; border-top: 1px solid var(--border); background: linear-gradient(to bottom, #050505, #0a0a0a); }
+        .contact-links { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+        .contact-links a { text-decoration: none; color: var(--text); font-size: 1rem; transition: 0.3s; display: flex; align-items: center; gap: 12px; font-weight: 400; }
+        .contact-links a:hover { color: var(--accent); }
+        .contact-links i { color: var(--accent); font-size: 1.2rem; }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            #main-canvas { position: relative; height: auto; }
-            #viewport { position: relative !important; transform: none !important; }
-            body { height: auto !important; }
-            header { height: 70vh; }
-            .hero-bg { transform: none !important; }
-            .poster-card { flex: 0 0 260px; }
-            .bts-box { flex: 1 1 100%; }
-            .contact-grid { grid-template-columns: 1fr; }
+            nav { padding: 15px 6%; }
+            .logo { font-size: 1rem; }
+            .bts-row { height: 250px; }
+            .contact-links { flex-direction: column; align-items: flex-start; gap: 20px; }
             .stats-grid { flex-direction: column; gap: 40px; }
-            .stat-unit h2 { font-size: 3rem; }
-            .cv-btn { bottom: 20px; right: 20px; padding: 10px 20px; }
+            .strategy-row img { height: 350px; }
+            .cv-btn { padding: 12px 25px; font-size: 0.7rem; bottom: 20px; right: 20px; }
+            section { padding: 50px 0; }
         }
 
-        footer { padding: 40px 6%; text-align: center; color: var(--text-dim); font-size: 0.7rem; border-top: 1px solid #111; letter-spacing: 2px; }
+        .cv-btn { position: fixed; bottom: 40px; right: 40px; background: var(--accent); color: #000; padding: 16px 35px; border-radius: 50px; font-weight: 800; text-decoration: none; z-index: 3000; font-size: 0.85rem; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .cv-btn:hover { background: #fff; transform: translateY(-5px); }
+
+        footer { padding: 40px 6%; text-align: center; color: var(--text-dim); font-size: 0.7rem; border-top: 1px solid #111; letter-spacing: 3px; }
+
+        #viewport { width: 100%; position: absolute; top: 0; left: 0; will-change: transform; }
     </style>
 </head>
 <body>
 
-    <a href="Shlok_Kishore_CV.pdf" target="_blank" class="cv-btn">CV <i class="fas fa-file-download"></i></a>
+    <a href="Shlok_Kishore_CV.pdf" target="_blank" class="cv-btn">DOWNLOAD CV</a>
 
     <nav id="navbar">
         <div class="logo">SHLOK KISHORE</div>
-        <div style="font-size: 0.5rem; letter-spacing: 3px; font-weight: 800; color: var(--accent);">STUDIO</div>
+        <div style="font-size: 0.6rem; letter-spacing: 4px; font-weight: 800; color: var(--accent);">VISUAL ARCHITECT</div>
     </nav>
 
     <div id="main-canvas">
@@ -154,120 +170,149 @@
                 <div class="hero-bg" id="hero-bg"></div>
                 <div class="hero-content">
                     <h1>SHLOK KISHORE</h1>
-                    <p class="hero-subtitle">FILMMAKER | VISUAL ARCHITECT</p>
+                    <p class="hero-subtitle">FILMMAKER | STORYTELLER | VISUAL ARCHITECT</p>
                 </div>
             </header>
 
-            <section style="padding: 60px 0;">
-                <p class="section-label">Productions</p>
+            <section>
+                <p class="section-label">Featured Productions</p>
                 <div class="netflix-row">
                     <div class="poster-card" onclick="openVid('YAnR2zt4Qfo')">
                         <img src="https://img.youtube.com/vi/YAnR2zt4Qfo/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info">
+                            <h3>Ek Laash Ki Casting (2026)</h3>
+                            <p>Cinematography</p>
+                        </div>
                     </div>
                     <div class="poster-card" onclick="openVid('Lv5qtAtIV7E')">
                         <img src="https://img.youtube.com/vi/Lv5qtAtIV7E/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info">
+                            <h3>Bihari Mati Apna: A Documentary (2023)</h3>
+                            <p>Direction & Screenplay</p>
+                        </div>
                     </div>
                     <div class="poster-card" onclick="openVid('Hte7B5KoKj0')">
                         <img src="https://img.youtube.com/vi/Hte7B5KoKj0/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info">
+                            <h3>Blurred (2025)</h3>
+                            <p>Cinematography</p>
+                        </div>
                     </div>
                     <div class="poster-card" onclick="openVid('AWv2lH9_rAc')">
                         <img src="https://img.youtube.com/vi/AWv2lH9_rAc/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info">
+                            <h3>Stop War Awareness (2024)</h3>
+                            <p>Direction & Cinematography</p>
+                        </div>
                     </div>
                     <div class="poster-card" onclick="openVid('-wm6WEyKdTA')">
                         <img src="https://img.youtube.com/vi/-wm6WEyKdTA/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info">
+                            <h3>Maya (2024)</h3>
+                            <p>Direction, Screenplay, DOP, & Editing</p>
+                        </div>
                     </div>
                     <div class="poster-card" onclick="openVid('-FwVpQ6fGtc')">
                         <img src="https://img.youtube.com/vi/-FwVpQ6fGtc/maxresdefault.jpg" class="poster-img">
+                        <div class="poster-info">
+                            <h3>When the Music Stops (2025)</h3>
+                            <p>Direction & Cinematography</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <p class="section-label">Impact</p>
-                <div style="display: flex; justify-content: space-around; padding: 40px 6%;" class="stats-grid">
+                <p class="section-label">Behind The Lens</p>
+                <div class="bts-row">
+                    <div class="bts-box"><img src="bts1.jpeg"></div>
+                    <div class="bts-box"><img src="bts2.JPEG"></div>
+                    <div class="bts-box"><img src="bts3.JPEG"></div>
+                    <div class="bts-box"><img src="bts4.jpeg"></div>
+                </div>
+            </section>
+
+            <section>
+                <p class="section-label">Creative Suite</p>
+                <div class="software-cluster">
+                    <div class="sw-item"><img src="premiere.svg"><span>Premiere Pro</span></div>
+                    <div class="sw-item"><img src="ae.svg"><span>After Effects</span></div>
+                    <div class="sw-item"><img src="davinci.png"><span>DaVinci Resolve</span></div>
+                    <div class="sw-item"><img src="ps.svg"><span>Photoshop</span></div>
+                    <div class="sw-item"><img src="finaldraft.png"><span>Final Draft</span></div>
+                    <div class="sw-item"><img src="canva.svg"><span>Canva</span></div>
+                    <div class="sw-item"><img src="excel.svg"><span>MS Excel</span></div>
+                    <div class="sw-item"><img src="word.svg"><span>MS Word</span></div>
+                    <div class="sw-item"><img src="powerpoint.svg"><span>MS PowerPoint</span></div>
+                </div>
+            </section>
+
+            <section>
+                <p class="section-label">Digital Impact</p>
+                <div class="stats-grid">
                     <div class="stat-unit"><h2>411K+</h2><p>Views</p></div>
                     <div class="stat-unit"><h2>37K+</h2><p>Interactions</p></div>
                     <div class="stat-unit"><h2>22K+</h2><p>Likes</p></div>
                 </div>
-                
                 <div class="strategy-row">
-                    <div class="analytics-container"><img src="analytics 1.jpeg"></div>
-                    <div class="analytics-container"><img src="analytics 2.jpeg"></div>
-                    <div class="analytics-container"><img src="analytics 3.jpeg"></div>
-                    <div class="analytics-container"><img src="analytics 4.jpeg"></div>
-                    <div class="analytics-container"><img src="analytics 5.jpeg"></div>
-                </div>
-            </section>
-
-            <section>
-                <p class="section-label">Suite</p>
-                <div class="software-cluster">
-                    <div class="sw-item"><img src="premiere.svg"><span>Premiere</span></div>
-                    <div class="sw-item"><img src="ae.svg"><span>After Effects</span></div>
-                    <div class="sw-item"><img src="davinci.png"><span>DaVinci</span></div>
-                    <div class="sw-item"><img src="ps.svg"><span>Photoshop</span></div>
-                    <div class="sw-item"><img src="canva.svg"><span>Canva</span></div>
-                    <div class="sw-item"><img src="excel.svg"><span>Excel</span></div>
+                    <img src="analytics 1.jpeg">
+                    <img src="analytics 2.jpeg">
+                    <img src="analytics 3.jpeg">
+                    <img src="analytics 4.jpeg">
+                    <img src="analytics 5.jpeg">
                 </div>
             </section>
 
             <section class="contact-panel">
-                <p class="section-label">Connect</p>
-                <div class="contact-grid">
-                    <a href="mailto:workwithshlokkishore@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i>
-                        <div><span>Email</span><b>workwithshlokkishore@gmail.com</b></div>
-                    </a>
-                    <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank" class="contact-link">
-                        <i class="fab fa-linkedin"></i>
-                        <div><span>LinkedIn</span><b>in/shlok-kishore</b></div>
-                    </a>
-                    <a href="tel:+918789406546" class="contact-link">
-                        <i class="fas fa-phone"></i>
-                        <div><span>Phone</span><b>+91 87894 06546</b></div>
-                    </a>
+                <p class="section-label" style="padding-left:0; margin-bottom: 40px;">Let's Connect</p>
+                <div class="contact-links">
+                    <a href="mailto:workwithshlokkishore@gmail.com"><i class="fas fa-envelope"></i> workwithshlokkishore@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="tel:+918789406546"><i class="fas fa-phone"></i> +91 87894 06546</a>
                 </div>
             </section>
 
             <footer>
-                © 2026 SHLOK KISHORE.
+                © 2026 SHLOK KISHORE. ALL RIGHTS RESERVED.
             </footer>
         </div>
     </div>
 
     <script>
-        // Only run smooth scroll on Desktop
-        if (window.innerWidth > 768) {
-            let current = 0;
-            let target = 0;
-            let ease = 0.08;
-            const viewport = document.getElementById('viewport');
+        let current = 0;
+        let target = 0;
+        let ease = 0.08;
+        const viewport = document.getElementById('viewport');
 
-            function lerp(start, end, t) { return start * (1 - t) + end * t; }
+        function lerp(start, end, t) { return start * (1 - t) + end * t; }
 
-            function smoothScroll() {
-                target = window.scrollY;
-                current = lerp(current, target, ease);
-                viewport.style.transform = `translateY(-${current}px)`;
-                
-                const heroBg = document.getElementById('hero-bg');
-                heroBg.style.transform = `scale(${1.2 - current * 0.0002}) translateY(${current * 0.35}px)`;
-                
-                const nav = document.getElementById('navbar');
-                nav.style.background = current > 80 ? "rgba(5,5,5,0.9)" : "transparent";
+        function smoothScroll() {
+            target = window.scrollY;
+            current = lerp(current, target, ease);
+            viewport.style.transform = `translateY(-${current}px)`;
+            
+            const heroBg = document.getElementById('hero-bg');
+            heroBg.style.transform = `scale(${1.2 - current * 0.00015}) translateY(${current * 0.3}px)`;
+            
+            const nav = document.getElementById('navbar');
+            nav.style.background = current > 50 ? "rgba(5,5,5,0.9)" : "transparent";
+            nav.style.padding = current > 50 ? "15px 6%" : "25px 6%";
 
-                requestAnimationFrame(smoothScroll);
-            }
-
-            function updateHeight() {
-                document.body.style.height = viewport.getBoundingClientRect().height + 'px';
-            }
-
-            window.addEventListener('resize', updateHeight);
-            window.addEventListener('load', updateHeight);
-            updateHeight();
-            smoothScroll();
+            requestAnimationFrame(smoothScroll);
         }
+
+        function updateHeight() {
+            document.body.style.height = viewport.getBoundingClientRect().height + 'px';
+        }
+
+        window.addEventListener('resize', updateHeight);
+        window.addEventListener('load', () => {
+            updateHeight();
+            // Trigger twice for asset load shifts
+            setTimeout(updateHeight, 1000); 
+        });
+
+        smoothScroll();
 
         function openVid(id) { window.open(`https://www.youtube.com/watch?v=${id}`, '_blank'); }
     </script>
