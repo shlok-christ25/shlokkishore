@@ -33,7 +33,6 @@
         #main-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; }
         @media (max-width: 768px) { #main-canvas { position: relative; height: auto; } }
 
-        /* NAVIGATION WITH GLASSMORPHISM BOX ON SCROLL */
         nav {
             position: fixed; top: 0; width: 100%; padding: 25px 6%;
             display: flex; justify-content: space-between; align-items: center;
@@ -48,7 +47,6 @@
         }
         .logo { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--accent); letter-spacing: 2px; font-size: 1.1rem; }
 
-        /* Hero */
         header { 
             height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
@@ -60,9 +58,14 @@
         }
         .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 20px; }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); margin: 0; line-height: 1; color: var(--text); }
-        .hero-subtitle { margin-top: 20px; font-weight: 300; color: var(--text-dim); letter-spacing: 4px; text-transform: uppercase; font-size: clamp(0.7rem, 2vw, 0.9rem); }
+        .hero-subtitle { 
+            margin-top: 20px; font-weight: 300; color: var(--text-dim); 
+            letter-spacing: 4px; text-transform: uppercase; 
+            font-size: clamp(0.6rem, 2vw, 0.85rem); 
+        }
+        /* Big Bullet Separator */
+        .hero-subtitle span { color: var(--accent); margin: 0 10px; font-size: 1.2rem; vertical-align: middle; }
 
-        /* Slider */
         .slider-container { position: relative; width: 100%; overflow: visible; padding: 0; }
         .section-label { padding-left: 6%; font-size: 0.9rem; font-weight: 800; margin-bottom: 25px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
         
@@ -81,13 +84,12 @@
         .slider-container:hover .slider-btn { opacity: 1; }
         .btn-left { left: 2%; } .btn-right { right: 2%; }
 
-        /* THUMBNAILS ADJUSTED */
         .poster-card {
             flex: 0 0 320px; aspect-ratio: 16/9; position: relative;
             border-radius: 8px; transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer; border: 1px solid var(--border);
         }
-        @media (max-width: 768px) { .poster-card { flex: 0 0 260px; } }
+        @media (max-width: 768px) { .poster-card { flex: 0 0 280px; } }
         .poster-card:hover { transform: translateY(-5px); border-color: var(--accent); }
         .poster-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
         
@@ -96,49 +98,43 @@
             background: linear-gradient(transparent, rgba(0,0,0,0.95));
             border-radius: 0 0 8px 8px;
         }
-        .poster-info h3 { font-size: 0.75rem; margin: 0; font-weight: 800; color: var(--text); letter-spacing: 1px; text-transform: uppercase; }
-        .poster-info p { font-size: 0.6rem; color: var(--accent); margin-top: 4px; font-weight: 600; letter-spacing: 0.5px; }
+        .poster-info h3 { font-size: 0.8rem; margin: 0; font-weight: 800; color: var(--text); letter-spacing: 0.5px; text-transform: uppercase; }
+        .poster-info p { font-size: 0.65rem; color: var(--accent); margin-top: 4px; font-weight: 600; }
 
-        /* BTS */
+        /* BTS - Black & White to Color */
         .bts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 0 6%; margin-bottom: 80px; }
         @media (max-width: 768px) { .bts-grid { grid-template-columns: repeat(2, 1fr); } }
-        .bts-box { aspect-ratio: 1/1; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.4s ease; }
-        .bts-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .bts-box:hover img { transform: scale(1.05); filter: brightness(1.1); }
+        .bts-box { aspect-ratio: 1/1; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.4s ease; background: #000; }
+        .bts-box img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: 0.6s ease; filter: grayscale(100%); 
+        }
+        .bts-box:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
-        /* Software */
-        .software-cluster { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 30px; padding: 40px 6%; justify-items: center; }
+        .software-cluster { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 30px; padding: 40px 6%; justify-items: center; }
         .sw-item { text-align: center; }
-        .sw-item img { width: 40px; opacity: 0.8; transition: 0.4s; }
-        .sw-item:hover img { transform: translateY(-5px); filter: drop-shadow(0 0 8px var(--accent)); }
-        .sw-item span { display: block; font-size: 0.6rem; margin-top: 10px; color: var(--text-dim); font-weight: 600; }
+        .sw-item img { width: 45px; opacity: 0.8; transition: 0.4s; }
+        .sw-item:hover img { transform: translateY(-5px); filter: drop-shadow(0 0 8px var(--accent)); opacity: 1; }
+        .sw-item span { display: block; font-size: 0.65rem; margin-top: 10px; color: var(--text-dim); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* ANALYTICS ADJUSTED SIZE */
+        /* ANALYTICS */
         .analytics-container { 
             padding: 0 6% 80px; 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 20px; 
-            justify-content: center;
+            display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
         }
         .analytics-item { 
-            flex: 1 1 300px;
-            max-width: 450px; /* Limits size on desktop */
-            border-radius: 12px; 
-            overflow: hidden; 
-            border: 1px solid var(--border);
+            flex: 1 1 300px; max-width: 480px;
+            border-radius: 12px; overflow: hidden; border: 1px solid var(--border);
             transition: 0.5s;
         }
         @media (max-width: 768px) { .analytics-item { flex: 1 1 100%; } }
         .analytics-item img { width: 100%; height: auto; display: block; }
         .analytics-item:hover { border-color: var(--accent); box-shadow: 0 0 25px rgba(196, 163, 107, 0.15); }
 
-        /* Stats */
         .stats-grid { display: flex; justify-content: space-around; padding: 60px 6%; text-align: center; }
         .stat-unit h2 { font-size: clamp(2rem, 5vw, 4rem); margin: 0; color: var(--accent); font-family: 'Playfair Display', serif; }
         .stat-unit p { font-size: 0.65rem; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; margin-top: 8px; }
 
-        /* CONTACT SECTION - COLORS ADJUSTED */
         .contact-panel { padding: 80px 6%; border-top: 1px solid var(--border); background: linear-gradient(to bottom, #050505, #0a0a0a); }
         .contact-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
         .contact-links a { 
@@ -147,35 +143,18 @@
             padding: 12px 28px; border: 1px solid var(--border); border-radius: 50px;
             background: rgba(255, 255, 255, 0.02);
         }
-        .contact-links a i { color: var(--accent); }
-        .contact-links a:hover { 
-            background: var(--accent); 
-            color: #000; 
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        .contact-links a:hover i { color: #000; }
+        .contact-links a:hover { background: var(--accent); color: #000; border-color: var(--accent); transform: translateY(-3px); }
 
-        /* CV BUTTON WITH INTERACTIVE GRAPHIC */
+        /* CV BUTTON - DOCUMENT ICON */
         .cv-btn { 
             position: fixed; bottom: 30px; right: 30px; background: #fff; 
             color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 800; 
             text-decoration: none; z-index: 3000; font-size: 0.7rem; 
             display: flex; align-items: center; gap: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .cv-icon {
-            width: 16px; height: 16px; position: relative;
-            border-bottom: 2px solid #000;
-        }
-        .cv-icon::after {
-            content: "\f0ab"; font-family: "Font Awesome 6 Free"; font-weight: 900;
-            position: absolute; top: -8px; left: 1px; font-size: 14px;
             transition: 0.3s;
         }
-        .cv-btn:hover { background: var(--accent); transform: scale(1.05); }
-        .cv-btn:hover .cv-icon::after { transform: translateY(2px); }
+        .cv-btn:hover { background: var(--accent); transform: translateY(-5px); }
 
         footer { padding: 40px 6%; text-align: center; color: var(--text-dim); font-size: 0.65rem; border-top: 1px solid #111; letter-spacing: 2px; }
 
@@ -186,7 +165,7 @@
 <body>
 
     <a href="Shlok_Kishore_CV.pdf" target="_blank" class="cv-btn">
-        <div class="cv-icon"></div> DOWNLOAD CV
+        <i class="fas fa-file-lines" style="font-size: 1rem;"></i> DOWNLOAD CV
     </a>
 
     <nav id="navbar">
@@ -201,7 +180,7 @@
                 <div class="hero-bg" id="hero-bg"></div>
                 <div class="hero-content">
                     <h1>SHLOK KISHORE</h1>
-                    <p class="hero-subtitle">FILMMAKER | STORYTELLER | VISUAL ARCHITECT</p>
+                    <p class="hero-subtitle">FILMMAKER <span>&bull;</span> STORYTELLER <span>&bull;</span> VISUAL ARCHITECT</p>
                 </div>
             </header>
 
@@ -220,7 +199,7 @@
                         <div class="poster-card" onclick="openVid('Lv5qtAtIV7E')">
                             <img src="https://img.youtube.com/vi/Lv5qtAtIV7E/maxresdefault.jpg" class="poster-img">
                             <div class="poster-info">
-                                <h3>Bihari Mati Apna (2023)</h3>
+                                <h3>Bihari Mati Apna: A Documentary (2023)</h3>
                                 <p>Direction & Screenplay</p>
                             </div>
                         </div>
@@ -245,6 +224,13 @@
                                 <p>Direction, Screenplay, DOP, & Editing</p>
                             </div>
                         </div>
+                        <div class="poster-card" onclick="openVid('-FwVpQ6fGtc')">
+                            <img src="https://img.youtube.com/vi/-FwVpQ6fGtc/maxresdefault.jpg" class="poster-img">
+                            <div class="poster-info">
+                                <h3>When the Music Stops (2025)</h3>
+                                <p>Direction & Cinematography</p>
+                            </div>
+                        </div>
                     </div>
                     <button class="slider-btn btn-right" onclick="scrollSlider(1)"><i class="fas fa-chevron-right"></i></button>
                 </div>
@@ -261,7 +247,7 @@
             </section>
 
             <section>
-                <p class="section-label">Creative Suite</p>
+                <p class="section-label">Creative & Business Suite</p>
                 <div class="software-cluster">
                     <div class="sw-item"><img src="premiere.svg"><span>Premiere Pro</span></div>
                     <div class="sw-item"><img src="ae.svg"><span>After Effects</span></div>
@@ -269,12 +255,17 @@
                     <div class="sw-item"><img src="ps.svg"><span>Photoshop</span></div>
                     <div class="sw-item"><img src="finaldraft.png"><span>Final Draft</span></div>
                     <div class="sw-item"><img src="canva.svg"><span>Canva</span></div>
-                    <div class="sw-item"><img src="excel.svg"><span>Excel</span></div>
+                    <div class="sw-item"><img src="excel.svg"><span>MS Excel</span></div>
+                    <div class="sw-item"><img src="word.svg"><span>MS Word</span></div>
+                    <div class="sw-item"><img src="powerpoint.svg"><span>MS PowerPoint</span></div>
                 </div>
             </section>
 
             <section>
-                <p class="section-label">Digital Impact & Strategy</p>
+                <p class="section-label">Digital Strategy & Analytics</p>
+                <div style="padding: 0 6%; margin-bottom: 20px; color: var(--text-dim); font-size: 0.7rem; letter-spacing: 1px;">
+                    STUDENT COORDINATOR @ OFFICIAL MEDIA TEAM, CHRIST UNIVERSITY
+                </div>
                 <div class="stats-grid">
                     <div class="stat-unit"><h2>411K+</h2><p>Views</p></div>
                     <div class="stat-unit"><h2>37K+</h2><p>Interactions</p></div>
@@ -292,7 +283,7 @@
             <section class="contact-panel">
                 <p class="section-label" style="text-align:center; padding:0; margin-bottom:40px;">Let's Connect</p>
                 <div class="contact-links">
-                    <a href="mailto:workwithshlokkishore@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="mailto:workwithshlokkishore@gmail.com" title="Send an Email"><i class="fas fa-envelope"></i> Email</a>
                     <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                     <a href="tel:+918789406546"><i class="fas fa-phone"></i> +91 87894 06546</a>
                 </div>
@@ -312,7 +303,6 @@
         const ease = 0.08;
         const viewport = document.getElementById('viewport');
 
-        // Scroll listener for Navbar box
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
@@ -327,10 +317,8 @@
                 target = window.scrollY;
                 current = lerp(current, target, ease);
                 viewport.style.transform = `translateY(-${current}px)`;
-                
                 const heroBg = document.getElementById('hero-bg');
                 heroBg.style.transform = `scale(${1.2 - current * 0.0002}) translateY(${current * 0.3}px)`;
-                
                 requestAnimationFrame(smoothScroll);
             }
             function updateHeight() { document.body.style.height = viewport.getBoundingClientRect().height + 'px'; }
