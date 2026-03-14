@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;500;800&family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:wght@300;400;600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -33,7 +33,6 @@
         #main-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; }
         @media (max-width: 768px) { #main-canvas { position: relative; height: auto; } }
 
-        /* NAVIGATION */
         nav {
             position: fixed; top: 0; width: 100%; padding: 25px 6%;
             display: flex; justify-content: space-between; align-items: center;
@@ -46,9 +45,8 @@
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(196, 163, 107, 0.2);
         }
-        .logo { font-family: 'Cinzel', serif; font-weight: 700; color: var(--accent); letter-spacing: 2px; font-size: 1.1rem; }
+        .logo { font-family: 'Bodoni Moda', serif; font-weight: 800; color: var(--accent); letter-spacing: 1px; font-size: 1.1rem; text-transform: uppercase; }
 
-        /* HERO SECTION - NEW FONTS */
         header { 
             height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden;
@@ -60,32 +58,35 @@
         }
         .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 20px; }
         
+        /* Updated Cinematic Font for the Main Name */
         .hero-content h1 { 
-            font-family: 'Cinzel', serif; 
-            font-size: clamp(2.5rem, 9vw, 6.5rem); 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: clamp(3rem, 11vw, 7.5rem); 
             margin: 0; 
-            line-height: 1.1; 
-            color: var(--text);
-            font-weight: 900;
+            line-height: 0.95; 
+            color: var(--text); 
+            font-weight: 800;
+            letter-spacing: -1px;
             text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         
+        /* Spaced out Montserrat for the subtitle */
         .hero-subtitle { 
             font-family: 'Montserrat', sans-serif;
-            margin-top: 25px; 
-            font-weight: 500; 
+            margin-top: 20px; 
+            font-weight: 400; 
             color: var(--text-dim); 
             letter-spacing: 6px; 
             text-transform: uppercase; 
             font-size: clamp(0.55rem, 1.8vw, 0.8rem); 
         }
-        .hero-subtitle span { color: var(--accent); margin: 0 12px; font-size: 1.1rem; vertical-align: middle; }
+        .hero-subtitle span { color: var(--accent); margin: 0 12px; font-size: 1rem; vertical-align: middle; }
 
-        /* PRODUCTIONS SLIDER */
         .slider-container { position: relative; width: 100%; overflow: visible; padding: 0; }
+        
         .section-label { 
             font-family: 'Montserrat', sans-serif;
-            padding-left: 6%; font-size: 0.85rem; font-weight: 800; margin-bottom: 25px; 
+            padding-left: 6%; font-size: 0.8rem; font-weight: 800; margin-bottom: 25px; 
             color: var(--accent); letter-spacing: 3px; text-transform: uppercase; 
         }
         
@@ -121,7 +122,7 @@
         .poster-info h3 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; margin: 0; font-weight: 800; color: var(--text); letter-spacing: 0.5px; text-transform: uppercase; }
         .poster-info p { font-size: 0.6rem; color: var(--accent); margin-top: 4px; font-weight: 600; text-transform: uppercase; }
 
-        /* BTS - BLACK & WHITE HOVER */
+        /* BTS - Black & White to Color */
         .bts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 0 6%; margin-bottom: 80px; }
         @media (max-width: 768px) { .bts-grid { grid-template-columns: repeat(2, 1fr); } }
         .bts-box { aspect-ratio: 1/1; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: 0.4s ease; background: #000; }
@@ -131,12 +132,11 @@
         }
         .bts-box:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
-        /* SOFTWARE SUITE */
         .software-cluster { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 30px; padding: 40px 6%; justify-items: center; }
         .sw-item { text-align: center; }
-        .sw-item img { width: 42px; opacity: 0.75; transition: 0.4s; }
+        .sw-item img { width: 45px; opacity: 0.8; transition: 0.4s; }
         .sw-item:hover img { transform: translateY(-5px); filter: drop-shadow(0 0 8px var(--accent)); opacity: 1; }
-        .sw-item span { display: block; font-size: 0.6rem; margin-top: 12px; color: var(--text-dim); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+        .sw-item span { display: block; font-size: 0.65rem; margin-top: 10px; color: var(--text-dim); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* ANALYTICS */
         .analytics-container { 
@@ -153,16 +153,15 @@
         .analytics-item:hover { border-color: var(--accent); box-shadow: 0 0 25px rgba(196, 163, 107, 0.15); }
 
         .stats-grid { display: flex; justify-content: space-around; padding: 60px 6%; text-align: center; }
-        .stat-unit h2 { font-size: clamp(2rem, 5vw, 4rem); margin: 0; color: var(--accent); font-family: 'Cinzel', serif; }
-        .stat-unit p { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 3px; color: var(--text-dim); text-transform: uppercase; margin-top: 10px; font-weight: 500; }
+        .stat-unit h2 { font-size: clamp(2rem, 5vw, 4rem); margin: 0; color: var(--accent); font-family: 'Bodoni Moda', serif; font-weight: 800; }
+        .stat-unit p { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; margin-top: 8px; font-weight: 600; }
 
-        /* CONTACT */
         .contact-panel { padding: 80px 6%; border-top: 1px solid var(--border); background: linear-gradient(to bottom, #050505, #0a0a0a); }
-        .contact-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        .contact-links { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
         .contact-links a { 
-            text-decoration: none; color: var(--text); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700;
+            text-decoration: none; color: var(--text); font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600;
             transition: 0.3s; display: flex; align-items: center; gap: 12px; 
-            padding: 14px 30px; border: 1px solid var(--border); border-radius: 50px;
+            padding: 12px 28px; border: 1px solid var(--border); border-radius: 50px;
             background: rgba(255, 255, 255, 0.02); letter-spacing: 1px;
         }
         .contact-links a:hover { background: var(--accent); color: #000; border-color: var(--accent); transform: translateY(-3px); }
@@ -170,14 +169,15 @@
         /* CV BUTTON */
         .cv-btn { 
             position: fixed; bottom: 30px; right: 30px; background: #fff; 
-            color: #000; padding: 14px 28px; border-radius: 50px; font-weight: 800; 
-            text-decoration: none; z-index: 3000; font-size: 0.7rem; 
-            display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: 0.3s; letter-spacing: 1px;
+            color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 800; 
+            text-decoration: none; z-index: 3000; font-size: 0.7rem; font-family: 'Montserrat', sans-serif;
+            display: flex; align-items: center; gap: 10px; letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: 0.3s;
         }
-        .cv-btn:hover { background: var(--accent); transform: scale(1.05); }
+        .cv-btn:hover { background: var(--accent); transform: translateY(-5px); }
 
-        footer { padding: 40px 6%; text-align: center; color: var(--text-dim); font-size: 0.6rem; border-top: 1px solid #111; letter-spacing: 3px; font-weight: 500; font-family: 'Montserrat', sans-serif; }
+        footer { font-family: 'Montserrat', sans-serif; padding: 40px 6%; text-align: center; color: var(--text-dim); font-size: 0.6rem; border-top: 1px solid #111; letter-spacing: 3px; }
 
         #viewport { width: 100%; position: absolute; top: 0; left: 0; }
         @media (max-width: 768px) { #viewport { position: relative; } }
@@ -186,7 +186,7 @@
 <body>
 
     <a href="Shlok_Kishore_CV.pdf" target="_blank" class="cv-btn">
-        <i class="fas fa-file-pdf" style="font-size: 1rem;"></i> DOWNLOAD CV
+        <i class="fas fa-file-lines" style="font-size: 1rem;"></i> DOWNLOAD CV
     </a>
 
     <nav id="navbar">
@@ -285,7 +285,7 @@
             <section>
                 <p class="section-label">Digital Strategy & Analytics</p>
                 <div style="font-family: 'Montserrat', sans-serif; padding: 0 6%; margin-bottom: 20px; color: var(--text-dim); font-size: 0.65rem; letter-spacing: 1.5px; font-weight: 500;">
-                    STUDENT COORDINATOR @ OFFICIAL MEDIA TEAM ((DEPARTMENT OF MEDIA STUDIES) | CHRIST UNIVERSITY BANGALORE CENTRAL CAMPUS 
+                    STUDENT COORDINATOR @ OFFICIAL MEDIA TEAM (DEPARTMENT OF MEDIA STUDIES) | CHRIST UNIVERSITY BANGALORE CENTRAL CAMPUS 
                 </div>
                 <div class="stats-grid">
                     <div class="stat-unit"><h2>411K+</h2><p>Views</p></div>
@@ -304,7 +304,7 @@
             <section class="contact-panel">
                 <p class="section-label" style="text-align:center; padding:0; margin-bottom:40px;">Let's Connect</p>
                 <div class="contact-links">
-                    <a href="mailto:workwithshlokkishore@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="mailto:workwithshlokkishore@gmail.com" title="Send an Email"><i class="fas fa-envelope"></i> Email</a>
                     <a href="https://www.linkedin.com/in/shlok-kishore-68ab07237" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                     <a href="tel:+918789406546"><i class="fas fa-phone"></i> +91 87894 06546</a>
                 </div>
